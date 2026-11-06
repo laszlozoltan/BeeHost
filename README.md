@@ -17,23 +17,31 @@ The page replaces the earlier WordPress site (beehostcom.wordpress.com); its con
 
 ## Files
 
-| File | Purpose |
-|---|---|
-| `index.html` | The whole site: HTML, CSS and JavaScript in one file (rename `beehost.html` to `index.html`) |
-| `README.md` | This file |
+```
+index.html          the whole page: HTML, CSS and JavaScript
+README.md           this file
+images/             species drawings (JPEG, 600 px wide)
+  osmia-cornuta.jpg
+  osmia-bicornis.jpg
+  osmia-caerulescens.jpg
+  osmia-leaiana.jpg
+  osmia-brevicornis.jpg
+  hoplitis-adunca.jpg
+```
 
 No build step and no dependencies. The only external resources are the Google Fonts **Merriweather** (body text) and **Open Sans** (headings, menus, labels), the same pairing as the personal site at <https://laszlozoltan.github.io/personal/>.
 
 ## Publishing on GitHub Pages
 
-1. Create a repository (e.g. `beehost`) and upload `index.html` and `README.md` to the root.
+1. Create a repository (e.g. `beehost`) and upload `index.html`, `README.md` and the `images` folder to the root. In the GitHub web interface, drag the whole `images` folder onto **Add file → Upload files**; the folder structure is kept.
 2. Go to **Settings → Pages**, set **Source** to *Deploy from a branch*, branch `main`, folder `/ (root)`, and save.
 3. After a minute the site is live at `https://<username>.github.io/<repository>/`.
 
 ## Editing
 
 - **Language:** every text appears twice, as `<span class="hu">…</span>` and `<span class="ro">…</span>`. Edit both. The HU/RO switch in the hero remembers the visitor's choice.
-- **Species list:** the guest tabs are generated from the `G` array in the `<script>` at the end of the file. Each species is `[scientific name, HU name or family, RO family, HU note, RO note]`.
+- **Species list:** the guest tabs are generated from the `G` array in the `<script>` at the end of the file. Each species is `[scientific name, HU name or family, RO family, HU note, RO note, image]`; the image is optional.
+- **Adding a drawing:** put the JPEG in `images/` (lower-case, hyphenated name, about 600 px wide), add a line such as `const XY_IMG='images/genus-species.jpg';` above `const G=[`, and add `XY_IMG` as the sixth item of that species. The caption under every drawing reads “fent nőstény, lent hím” / “sus femela, jos masculul”, so drawings should show the female on top.
 - **Colours:** set once in the `:root` block at the top of the `<style>`:
 
   | Colour | Hex | Used for |
@@ -48,11 +56,13 @@ No build step and no dependencies. The only external resources are the Google Fo
   | White Onyx | `#D8D8D0` | inactive months, larvae |
 
   Hex values were estimated from a colour-swatch image; replace them if you have the exact codes.
-- **Graphics:** the reed-tube hero, the life-cycle stems and the plug key are drawn with `<canvas>` in the script; there are no image files.
+- **Graphics:** the reed-tube hero, the life-cycle stems and the plug key are drawn with `<canvas>` in the script; only the species drawings are image files.
 
 ## Notes
 
 - The original WordPress pages used photos from Flickr and other sources with individual credits. They are not in this version. If you add photos back, keep the photographer credits.
+- *Osmia adunca* is listed under its current name, *Hoplitis adunca*.
+- The assignment of the *O. leaiana* and *O. brevicornis* drawings was made from their appearance; check before publishing.
 - Corrections made to the original text:
   - *Trypoxylon* is placed in Crabronidae; the RO page had it under "Apocrita".
   - Leucospidae hosts are given as Megachilidae; the RO page said "albinele artistice".
