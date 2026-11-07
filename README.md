@@ -20,13 +20,16 @@ The page replaces the earlier WordPress site (beehostcom.wordpress.com); its con
 ```
 index.html          the whole page: HTML, CSS and JavaScript
 README.md           this file
-images/             species drawings (JPEG, 600 px wide)
-  osmia-cornuta.jpg
-  osmia-bicornis.jpg
-  osmia-caerulescens.jpg
-  osmia-leaiana.jpg
-  osmia-brevicornis.jpg
-  hoplitis-adunca.jpg
+images/             drawings with transparent background (WebP): species 600 px, life cycle 1000 px wide
+  osmia-cornuta.webp
+  osmia-bicornis.webp
+  osmia-caerulescens.webp
+  osmia-leaiana.webp
+  osmia-brevicornis.webp
+  hoplitis-adunca.webp
+  cycle-1-egg.webp     life cycle: pollen loaves and eggs
+  cycle-2-larva.webp   life cycle: larvae
+  cycle-3-cocoon.webp  life cycle: cocoons
 ```
 
 No build step and no dependencies. The only external resources are the Google Fonts **Merriweather** (body text) and **Open Sans** (headings, menus, labels), the same pairing as the personal site at <https://laszlozoltan.github.io/personal/>.
@@ -41,7 +44,7 @@ No build step and no dependencies. The only external resources are the Google Fo
 
 - **Language:** every text appears twice, as `<span class="hu">…</span>` and `<span class="ro">…</span>`. Edit both. The HU/RO switch in the hero remembers the visitor's choice.
 - **Species list:** the guest tabs are generated from the `G` array in the `<script>` at the end of the file. Each species is `[scientific name, HU name or family, RO family, HU note, RO note, image]`; the image is optional.
-- **Adding a drawing:** put the JPEG in `images/` (lower-case, hyphenated name, about 600 px wide), add a line such as `const XY_IMG='images/genus-species.jpg';` above `const G=[`, and add `XY_IMG` as the sixth item of that species. The caption under every drawing reads “fent nőstény, lent hím” / “sus femela, jos masculul”, so drawings should show the female on top.
+- **Adding a drawing:** put the drawing in `images/` as a transparent WebP or PNG (lower-case, hyphenated name, about 600 px wide), add a line such as `const XY_IMG='images/genus-species.webp';` above `const G=[`, and add `XY_IMG` as the sixth item of that species. The caption under every drawing reads “fent nőstény, lent hím” / “sus femela, jos masculul”, so drawings should show the female on top.
 - **Colours:** set once in the `:root` block at the top of the `<style>`:
 
   | Colour | Hex | Used for |
@@ -56,7 +59,7 @@ No build step and no dependencies. The only external resources are the Google Fo
   | White Onyx | `#D8D8D0` | inactive months, larvae |
 
   Hex values were estimated from a colour-swatch image; replace them if you have the exact codes.
-- **Graphics:** the reed-tube hero, the life-cycle stems and the plug key are drawn with `<canvas>` in the script; only the species drawings are image files.
+- **Graphics:** the reed-tube hero and the plug key are drawn with `<canvas>` in the script; the species and life-cycle drawings are image files in `images/`.
 
 ## Notes
 
