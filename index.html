@@ -109,9 +109,12 @@ p{margin:0;max-width:62ch}
 .nesting div:last-child{background:var(--banana)}
 .nest-lbl{font-family:var(--f-ui);display:flex;justify-content:space-between;font-size:13.5px;color:var(--muted);margin-top:8px;gap:12px}
 
-.cycle{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
-.season{display:flex;flex-direction:column;gap:12px;min-width:0}
-.season canvas{width:100%;aspect-ratio:3/1.25;border-radius:0;background:var(--amaranth);max-width:100%}
+.cycle{display:grid;grid-template-columns:1fr;gap:28px;margin-top:36px}
+.season{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);grid-template-rows:auto 1fr;column-gap:36px;row-gap:8px;align-items:start;min-width:0}
+.season img.stage{grid-row:1/span 2}
+.season h3{align-self:end}
+@media (max-width:700px){.season{grid-template-columns:1fr;grid-template-rows:none}.season img.stage{grid-row:auto}}
+.season img.stage{display:block;width:100%;height:auto;max-width:100%;background:#fff;mix-blend-mode:multiply}
 .season h3 small{display:block;font-family:var(--f-ui);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orchid);font-weight:700;margin-bottom:2px}
 
 .tabs{display:flex;gap:6px 26px;flex-wrap:wrap;margin-top:28px;border-bottom:1px solid var(--line)}
@@ -295,9 +298,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
     <h2><span class="hu">Egy nádszál, egy évnyi fejlődés.</span><span class="ro">Un fir de stuf, un an de dezvoltare.</span></h2>
     <p class="muted" style="margin-top:18px"><span class="hu">A ciklus kezdete fajonként eltér: egyesek kora tavasszal, mások nyár végén vagy kora ősszel petéznek. Az utódok fejlődése hasonló, csak az időtartam változik.</span><span class="ro">Începutul ciclului diferă de la o specie la alta: unele depun ouăle primăvara devreme, altele la sfârșitul verii sau toamna. Dezvoltarea urmașilor e asemănătoare, doar durata variază.</span></p>
     <div class="cycle">
-      <div class="season"><canvas data-stage="0" aria-hidden="true"></canvas><h3><small><span class="hu">Tavasz</span><span class="ro">Primăvara</span></small><span class="hu">Méhkenyér és pete</span><span class="ro">Pâine de albine și ou</span></h3><p class="muted"><span class="hu">A nőstény pollent és nektárt gyűjt a cellákba, majd mindegyik méhkenyérre egy petét rak.</span><span class="ro">Femela adună polen și nectar în celule, apoi depune câte un ou pe fiecare porție de pâine de albine.</span></p></div>
-      <div class="season"><canvas data-stage="1" aria-hidden="true"></canvas><h3><small><span class="hu">Nyár</span><span class="ro">Vara</span></small><span class="hu">Lárvák</span><span class="ro">Larvele</span></h3><p class="muted"><span class="hu">Kikelnek a lárvák és a méhkenyérből táplálkoznak. Egyes cellákban az utód nem éri el a lárva stádiumot.</span><span class="ro">Larvele eclozează și se hrănesc cu pâinea de albine. În unele celule urmașul nu ajunge la stadiul de larvă.</span></p></div>
-      <div class="season"><canvas data-stage="2" aria-hidden="true"></canvas><h3><small><span class="hu">Tél</span><span class="ro">Iarna</span></small><span class="hu">Selyemgubó</span><span class="ro">Coconul de mătase</span></h3><p class="muted"><span class="hu">A lárva selyemgubót sző maga köré, abban telel át, és tavasszal vagy nyáron kifejlett méhként távozik.</span><span class="ro">Larva își țese un cocon de mătase, iernează în el și iese primăvara sau vara ca adult.</span></p></div>
+      <div class="season"><img class="stage" src="images/cycle-1-egg.jpg" alt="Nádszál keresztmetszete: sárdugó, sárfalakkal elválasztott cellák, mindegyikben méhkenyér és pete / Secțiune prin tub: dop de noroi, celule separate cu pereți de noroi, în fiecare pâine de albine și un ou" loading="lazy"><h3><small><span class="hu">Tavasz</span><span class="ro">Primăvara</span></small><span class="hu">Méhkenyér és pete</span><span class="ro">Pâine de albine și ou</span></h3><p class="muted"><span class="hu">A nőstény pollent és nektárt gyűjt a cellákba, majd mindegyik méhkenyérre egy petét rak.</span><span class="ro">Femela adună polen și nectar în celule, apoi depune câte un ou pe fiecare porție de pâine de albine.</span></p></div>
+      <div class="season"><img class="stage" src="images/cycle-2-larva.jpg" alt="Lárvák a cellákban, a méhkenyérből táplálkoznak / Larve în celule, hrănindu-se cu pâinea de albine" loading="lazy"><h3><small><span class="hu">Nyár</span><span class="ro">Vara</span></small><span class="hu">Lárvák</span><span class="ro">Larvele</span></h3><p class="muted"><span class="hu">Kikelnek a lárvák és a méhkenyérből táplálkoznak. Egyes cellákban az utód nem éri el a lárva stádiumot.</span><span class="ro">Larvele eclozează și se hrănesc cu pâinea de albine. În unele celule urmașul nu ajunge la stadiul de larvă.</span></p></div>
+      <div class="season"><img class="stage" src="images/cycle-3-cocoon.jpg" alt="Selyemgubók a cellákban / Coconi de mătase în celule" loading="lazy"><h3><small><span class="hu">Tél</span><span class="ro">Iarna</span></small><span class="hu">Selyemgubó</span><span class="ro">Coconul de mătase</span></h3><p class="muted"><span class="hu">A lárva selyemgubót sző maga köré, abban telel át, és tavasszal vagy nyáron kifejlett méhként távozik.</span><span class="ro">Larva își țese un cocon de mătase, iernează în el și iese primăvara sau vara ca adult.</span></p></div>
     </div>
   </div>
 </section>
