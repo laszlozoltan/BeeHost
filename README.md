@@ -1,6 +1,6 @@
 # BeeHost – Vadméhek felmérése Kolozsváron / Cercetarea albinelor solitare din Cluj-Napoca
 
-Bilingual (Hungarian / Romanian) one-page website of the **BeeHost** project: a citizen-science survey of solitary (wild) bees that nest in insect hotels on balconies and in gardens in Cluj-Napoca. The project runs at the Faculty of Biology and Geology, Babeș-Bolyai University.
+Trilingual (Hungarian / Romanian / English) one-page website of the **BeeHost** project: a citizen-science survey of solitary (wild) bees that nest in insect hotels on balconies and in gardens in Cluj-Napoca. The project runs at the Faculty of Biology and Geology, Babeș-Bolyai University.
 
 The page replaces the earlier WordPress site (beehostcom.wordpress.com); its content comes from that site's export (28 Oct 2026).
 
@@ -30,9 +30,10 @@ images/             drawings with transparent background (WebP): species 600 px,
   cycle-1-egg.webp     life cycle: pollen loaves and eggs
   cycle-2-larva.webp   life cycle: larvae
   cycle-3-cocoon.webp  life cycle: cocoons
+  plugs/              nest-closure drawings 1–9 for the “How to read the sealed tubes” key
 ```
 
-No build step and no dependencies. The only external resources are the Google Fonts **Merriweather** (body text) and **Open Sans** (headings, menus, labels), the same pairing as the personal site at <https://laszlozoltan.github.io/personal/>.
+No build step and no dependencies. The only external resources are the Google Fonts **Josefin Sans** (all text).
 
 ## Publishing on GitHub Pages
 
@@ -42,9 +43,9 @@ No build step and no dependencies. The only external resources are the Google Fo
 
 ## Editing
 
-- **Language:** every text appears twice, as `<span class="hu">…</span>` and `<span class="ro">…</span>`. Edit both. The HU/RO switch in the hero remembers the visitor's choice.
-- **Species list:** the guest tabs are generated from the `G` array in the `<script>` at the end of the file. Each species is `[scientific name, HU name or family, RO family, HU note, RO note, image]`; the image is optional.
-- **Adding a drawing:** put the drawing in `images/` as a transparent WebP or PNG (lower-case, hyphenated name, about 600 px wide), add a line such as `const XY_IMG='images/genus-species.webp';` above `const G=[`, and add `XY_IMG` as the sixth item of that species. The caption under every drawing reads “fent nőstény, lent hím” / “sus femela, jos masculul”, so drawings should show the female on top.
+- **Language:** every text appears three times, as `<span class="hu">…</span>`, `<span class="ro">…</span>` and `<span class="en">…</span>`. Edit all three. The HU/RO/EN switch in the hero remembers the visitor's choice.
+- **Species list:** the guest tabs are generated from the `G` array in the `<script>` at the end of the file. Each species is an object `{sci, name:{hu,ro,en}, txt:{hu,ro,en}, img}`; `img` is optional.
+- **Adding a drawing:** put the drawing in `images/` as a transparent WebP or PNG (lower-case, hyphenated name, about 600 px wide), add a line such as `const XY_IMG='images/genus-species.webp';` above `const G=[`, and add `"img":XY_IMG` to that species. The caption under every drawing reads “fent nőstény, lent hím” / “sus femela, jos masculul”, so drawings should show the female on top.
 - **Colours:** set once in the `:root` block at the top of the `<style>`:
 
   | Colour | Hex | Used for |
