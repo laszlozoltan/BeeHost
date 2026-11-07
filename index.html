@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="darkreader-lock">
 <title>BeeHost Kolozsvár</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap">
 <style>
 /* Layout: centred 1040px box on a lilac page (as on the personal site); inside it a reed-tube hero cut by one horizontal nav line, then alternating white / pink bands, and a floating pill bar. Palette: Dutch Canal, Shale Green, Angora, Palm, White Onyx, Chocolate Truffle, Ether, Evening Blue. Single light look by choice. */
 :root{
-  color-scheme: light;
+  color-scheme: only light;
   --teaberry:#69424A; --lilac:#9EB5B6; --banana:#AFAF5F; --mandarin:#AFAF5F;
   --pink:#9BBDE3; --amaranth:#2A2940; --orchid:#6F9170; --caramel:#69424A; --onyx:#D8D8D0;
   --page:var(--lilac);
@@ -36,7 +38,7 @@ a{color:inherit}
 .hero{position:relative;height:min(78vh,680px);min-height:500px;overflow:hidden;background:var(--amaranth);color:#FFF6F2}
 #reeds{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 42%, rgba(16,16,30,.55) 100%);pointer-events:none}
-.navline{position:absolute;left:0;right:0;top:calc(50% - .8em);z-index:2;display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:22px;line-height:1.6;padding-left:var(--gut);padding-right:var(--gut-r);font-family:var(--f-ui);font-size:18px;font-weight:400;text-shadow:0 1px 14px rgba(14,14,28,.65)}
+.navline{position:absolute;left:0;right:0;top:calc(50% - .8em);z-index:2;display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:22px;line-height:1.6;padding-left:var(--gut);padding-right:var(--gut-r);font-family:var(--f-ui);font-size:18px;font-weight:400;text-shadow:0 1px 2px rgba(14,14,28,.9),0 1px 14px rgba(14,14,28,.7)}
 .navline .brand{font-weight:700;text-decoration:none;font-size:1.05em}
 .navline .left{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
 .navline nav{display:flex;flex-direction:row;flex-wrap:nowrap;white-space:nowrap;align-items:baseline;gap:4px 18px;margin-top:4px;font-weight:600}
@@ -154,6 +156,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 @media (max-width:900px){
   .navline{grid-template-columns:1fr auto;row-gap:10px;font-size:17px}
+  .navline{top:calc(50% - 2.4em);padding-block:14px;background:linear-gradient(180deg,rgba(30,29,48,0),rgba(30,29,48,.72) 16%,rgba(30,29,48,.72) 84%,rgba(30,29,48,0))}
   .navline .left{display:contents}
   .navline .brand{grid-column:1;grid-row:1}
   .navline .end{grid-column:2;grid-row:1}
