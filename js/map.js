@@ -3,7 +3,7 @@
   if(!window.L||!window.BH_MAP) return;
   var T=function(o){return window.BH.T(o)};
   var css=getComputedStyle(document.documentElement);
-  var C={on:css.getPropertyValue('--teaberry').trim()||'#69424A',off:css.getPropertyValue('--banana').trim()||'#AFAF5F',hotel:css.getPropertyValue('--orchid').trim()||'#6F9170',ink:'#2A2940'};
+  var C={on:'#E8590C',off:'#FFC078',hotel:'#F76707',ink:'#2A2940'};
   var map=L.map('bhmap',{scrollWheelZoom:false,zoomSnap:0.5}).setView([46.768,23.585],12.5);
   var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community'});
   var osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
@@ -35,7 +35,7 @@
       BH_MAP.cells2023.forEach(function(c){
         var style;
         if(key==='hotel'){ if(!c.hotel) return; style={color:'#fff',weight:1.5,fillColor:C.hotel,fillOpacity:.7}; n++; }
-        else { if(!c.obs) return; var v=c[key]===1; if(v) n++; style={color:'#fff',weight:v?2:1,fillColor:v?C.on:C.off,fillOpacity:v?.85:.5}; }
+        else { if(!c.obs) return; var v=c[key]===1; if(v) n++; style={color:'#fff',weight:v?2:1,fillColor:v?C.on:C.off,fillOpacity:v?.9:.45}; }
         L.polygon(c.c,style).addTo(layer);
       });
       leg.innerHTML = key==='hotel'
