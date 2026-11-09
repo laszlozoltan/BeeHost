@@ -27,6 +27,7 @@ images/             drawings with transparent background (WebP): species 600 px,
   osmia-leaiana.webp
   osmia-brevicornis.webp
   hoplitis-adunca.webp
+  apis-mellifera.webp, osmia-cornuta-female.webp   social vs. solitary comparison
   cycle-1-egg.webp     life cycle: pollen loaves and eggs
   cycle-2-larva.webp   life cycle: larvae
   cycle-3-cocoon.webp  life cycle: cocoons
