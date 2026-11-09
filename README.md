@@ -18,23 +18,23 @@ The page replaces the earlier WordPress site (beehostcom.wordpress.com); its con
 ## Files
 
 ```
-index.html          the whole page: HTML, CSS and JavaScript
+index.html          home page
+kutatas.html        research overview (linked from the "Részletek" button on the home page)
+felmeres.html       current survey: how it works, link to the data sheet
+adatlap.html        data sheet for volunteers (password gate + form)
+eredmenyek.html     public results page (2021 pilot and 2023 season)
+css/style.css       all styles, shared by every page
+js/lang.js          HU/RO/EN switch for the subpages
+js/map.js           interactive results map (survey + species switch)
+js/map-data.js      map data: 2023 hexagon cells, 2021 parks
+vendor/leaflet/     Leaflet 1.9.4 map library (BSD-2-Clause licence)
+apps-script/Code.gs Google Apps Script that writes data-sheet entries into a Google Sheet
 README.md           this file
-images/             drawings with transparent background (WebP): species 600 px, life cycle 1000 px wide
-  osmia-cornuta.webp
-  osmia-bicornis.webp
-  osmia-caerulescens.webp
-  osmia-leaiana.webp
-  osmia-brevicornis.webp
-  hoplitis-adunca.webp
-  apis-mellifera.webp, osmia-cornuta-female.webp   social vs. solitary comparison
-  cycle-1-egg.webp     life cycle: pollen loaves and eggs
-  cycle-2-larva.webp   life cycle: larvae
-  cycle-3-cocoon.webp  life cycle: cocoons
-  plugs/              nest-closure drawings 1–9 for the “How to read the sealed tubes” key
+images/             drawings with transparent background (WebP)
+  plugs/            nest-closure drawings 1–9
 ```
 
-No build step and no dependencies. The only external resources are the Google Fonts **Josefin Sans** (all text).
+No build step and no dependencies. `apps-script/Code.gs` is not used by the website itself; it is pasted into Google Apps Script (see below). The only external resources are the Google Fonts **Josefin Sans** (all text).
 
 ## Publishing on GitHub Pages
 
@@ -78,3 +78,41 @@ No build step and no dependencies. The only external resources are the Google Fo
 
 László Zoltán – zoltan.laszlo@ubbcluj.ro
 Babeș-Bolyai University, Faculty of Biology and Geology, Cluj-Napoca
+
+## Data sheet (adatlap.html) and Google Sheets
+
+GitHub Pages cannot store data or protect a page with a real password, so the data sheet works like this:
+
+- **Password gate (in the browser).** `adatlap.html` asks for a password and compares its SHA-256 hash with `PASS_HASH` at the top of the script. This keeps casual visitors out, but anyone who reads the source code can get past it, so it is not a security barrier.
+- **Real check (on Google's side).** Each submission sends the password along. The Apps Script compares it with the `PASSWORD` script property and only then writes a row to the sheet. Without the password nobody can add rows. The Google Sheet itself stays private to you.
+
+Initial password: `beehost-2027`. **Change it before you hand it to volunteers:**
+1. Choose a new password and compute its SHA-256 hash, e.g. in a terminal: `printf '%s' 'NEWPASSWORD' | shasum -a 256` (macOS/Linux) or with any online SHA-256 tool.
+2. Put the hash into `PASS_HASH` in `adatlap.html`.
+3. Put the password itself into the `PASSWORD` script property in Apps Script.
+
+Connecting the sheet (once):
+1. Create a Google Sheet, then **Extensions → Apps Script**, and paste `apps-script/Code.gs`.
+2. **Project Settings → Script properties → Add**: `PASSWORD` = the volunteer password.
+3. **Deploy → New deployment → Web app**; *Execute as*: Me; *Who has access*: Anyone. Authorise and copy the web app URL.
+4. Put the URL into `SCRIPT_URL` in `adatlap.html` and upload the file.
+
+Until `SCRIPT_URL` is set, the form does not send anything; it shows the entered data so the volunteer can e-mail it.
+
+Rows are written to the tab `Adatok`, one row per check, with the columns listed in `FIELDS` in `Code.gs` (observer, hotel ID, location, date, counts for plug types 1–9, open tubes, insects seen, photo link, notes).
+
+Photos are not uploaded through the form (that would need Google Drive permissions); volunteers give a link to a shared folder or send them by e-mail.
+
+## Results page (eredmenyek.html)
+
+Built from Kovács Kinga's BSc thesis (2021 data) and MSc dissertation (2023 data), and the BeeHost meeting materials (20 Nov 2023, 6 Mar 2025, 11 Dec 2025). The species list is the preliminary list from the MSc dissertation (Table 3); species names were normalised to current spelling. To update, edit the figures and the list directly in `eredmenyek.html`, in all three languages.
+
+## Results map
+
+`eredmenyek.html` has an interactive map (Leaflet; Esri World Imagery satellite background by default, OpenStreetMap as an alternative) with a 2021 / 2023 switch and a layer menu.
+
+- **2023:** hotel locations and species presence (*Osmia cornuta*, *O. bicornis* = *O. rufa*, *Trypoxylon* sp., *Leucospis dorsigera*, other) were digitised from the maps shown at the closing meeting on 20 Nov 2023 and georeferenced with the scale bar and two landmarks (Cluj Arena, the airport runway). Positions are approximate. To protect volunteers' privacy every point is generalised to a hexagon of about 600 m; no single hotel is shown.
+- **Border:** the Cluj-Napoca municipality outline from geoBoundaries (ROU ADM2, gbOpen, simplified), drawn as a dashed line on both maps.
+- **2021:** the seven parks of the pilot, at approximate park centres, with the share of occupied reed stems / wood holes read off Fig. 8 of the BSc thesis.
+
+When exact coordinates are available, regenerate `js/map-data.js` (`cells2023`: list of hexagons with `hotel`, `obs` and one 0/1 field per species; `parks2021`: list of parks with `lat`, `lon`, `reed`, `wood`).
