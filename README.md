@@ -97,6 +97,12 @@ Connecting the sheet (once):
 3. **Deploy → New deployment → Web app**; *Execute as*: Me; *Who has access*: Anyone. Authorise and copy the web app URL.
 4. Put the URL into `SCRIPT_URL` in `adatlap.html` and upload the file.
 
+Optional, in the Apps Script editor (choose the function at the top, press **Run**):
+- `setupSheet()` creates the `Adatok` tab with a formatted, frozen header row.
+- `createGoogleForm()` builds a matching Google Form (HU / RO / EN labels) linked to the same spreadsheet, as a backup for volunteers who cannot use the web page. Its responses go to a separate tab ("Form Responses 1"); the edit and share links appear under **Execution log**.
+
+The web data sheet is a five-step app: who and where, check, sealed tubes (tap + / − on each plug type), observations, review. It fills in today's date and time, remembers the volunteer's name and hotel on that device (optional), and keeps an unsent draft if the connection drops.
+
 Until `SCRIPT_URL` is set, the form does not send anything; it shows the entered data so the volunteer can e-mail it.
 
 Rows are written to the tab `Adatok`, one row per check, with the columns listed in `FIELDS` in `Code.gs` (observer, hotel ID, location, date, counts for plug types 1–9, open tubes, insects seen, photo link, notes).

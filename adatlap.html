@@ -29,57 +29,101 @@
 <main>
   <div class="wrap" style="padding-top:8px"><nav class="subnav"><a href="kutatas.html"><span class="hu">Áttekintés</span><span class="ro">Prezentare</span><span class="en">Overview</span></a><a href="felmeres.html" aria-current="page"><span class="hu">Jelenlegi felmérés</span><span class="ro">Studiul actual</span><span class="en">Current survey</span></a><a href="eredmenyek.html"><span class="hu">Eredményeink</span><span class="ro">Rezultatele noastre</span><span class="en">Our results</span></a></nav></div>
 
-<section>
+<section class="app-sec">
   <div class="wrap">
-    <div id="gate">
-      <p class="eyebrow"><span class="hu">Csak önkénteseknek</span><span class="ro">Doar pentru voluntari</span><span class="en">Volunteers only</span></p>
-      <h2><span class="hu">Belépés az adatlaphoz</span><span class="ro">Acces la fișa de date</span><span class="en">Sign in to the data sheet</span></h2>
-      <form class="gate" id="gateform">
-        <div class="fld"><label for="pw"><span class="hu">Jelszó</span><span class="ro">Parolă</span><span class="en">Password</span></label><input type="password" id="pw" autocomplete="current-password" required></div>
-        <button class="cta" type="submit"><span class="hu">Belépés</span><span class="ro">Intră</span><span class="en">Sign in</span></button>
-        <p id="gatemsg" class="msg err" hidden><span class="hu">Hibás jelszó. A jelszót a regisztrációkor e-mailben küldtük; ha elveszett, írj a zoltan.laszlo@ubbcluj.ro címre.</span><span class="ro">Parolă greșită. Parola a fost trimisă prin e-mail la înscriere; dacă ai pierdut-o, scrie la zoltan.laszlo@ubbcluj.ro.</span><span class="en">Wrong password. We sent the password by e-mail when you signed up; if you lost it, write to zoltan.laszlo@ubbcluj.ro.</span></p>
-      </form>
+    <div id="gate" class="gatecard">
+      <div class="gate-art" aria-hidden="true"></div>
+      <div class="gate-body">
+        <p class="eyebrow"><span class="hu">Csak önkénteseknek</span><span class="ro">Doar pentru voluntari</span><span class="en">Volunteers only</span></p>
+        <h2><span class="hu">Belépés az adatlaphoz</span><span class="ro">Acces la fișa de date</span><span class="en">Sign in to the data sheet</span></h2>
+        <form class="gate" id="gateform">
+          <div class="fld"><label for="pw"><span class="hu">Jelszó</span><span class="ro">Parolă</span><span class="en">Password</span></label><input type="password" id="pw" autocomplete="current-password" required></div>
+          <button class="cta" type="submit"><span class="hu">Belépés</span><span class="ro">Intră</span><span class="en">Sign in</span></button>
+          <p id="gatemsg" class="msg err" hidden><span class="hu">Hibás jelszó. A jelszót a regisztrációkor e-mailben küldtük; ha elveszett, írj a zoltan.laszlo@ubbcluj.ro címre.</span><span class="ro">Parolă greșită. Parola a fost trimisă prin e-mail la înscriere; dacă ai pierdut-o, scrie la zoltan.laszlo@ubbcluj.ro.</span><span class="en">Wrong password. We sent the password by e-mail when you signed up; if you lost it, write to zoltan.laszlo@ubbcluj.ro.</span></p>
+        </form>
+      </div>
     </div>
 
-    <div id="sheet" hidden>
-      <p class="eyebrow"><span class="hu">Adatfelvételi lap</span><span class="ro">Fișa de date</span><span class="en">Data sheet</span></p>
-      <h2><span class="hu">Egy ellenőrzés adatai</span><span class="ro">Datele unei verificări</span><span class="en">Record one check</span></h2>
-      <p class="muted"><span class="hu">Minden ellenőrzés után egy lapot tölts ki. A *-gal jelölt mezők kötelezőek.</span><span class="ro">Completează câte o fișă după fiecare verificare. Câmpurile marcate cu * sunt obligatorii.</span><span class="en">Fill in one sheet after each check. Fields marked * are required.</span></p>
-      <form class="sheet" id="sheetform" novalidate>
-        <fieldset>
-          <legend><span class="hu">Megfigyelő és hotel</span><span class="ro">Observator și hotel</span><span class="en">Observer and hotel</span></legend>
-          <div class="fld"><label for="observer"><span class="hu">Név</span><span class="ro">Nume</span><span class="en">Name</span><span class="req"> *</span></label><input type="text" id="observer" name="observer" required autocomplete="name"></div>
-          <div class="fld"><label for="email"><span class="hu">E-mail</span><span class="ro">E-mail</span><span class="en">E-mail</span></label><input type="email" id="email" name="email" autocomplete="email"></div>
-          <div class="fld"><label for="hotel_id"><span class="hu">Hotel azonosító</span><span class="ro">Codul hotelului</span><span class="en">Hotel ID</span><span class="req"> *</span></label><input type="text" id="hotel_id" name="hotel_id" required placeholder="BH-001"><small><span class="hu">a hotelre ragasztott kód</span><span class="ro">codul lipit pe hotel</span><span class="en">the code stuck on the hotel</span></small></div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="hu">Helyszín</span><span class="ro">Locație</span><span class="en">Location</span></legend>
-          <div class="fld"><label for="district"><span class="hu">Városrész</span><span class="ro">Cartier</span><span class="en">District</span><span class="req"> *</span></label><input type="text" id="district" name="district" required placeholder="Mănăștur, Gheorgheni…"></div>
-          <div class="fld"><label for="address"><span class="hu">Utca vagy koordináták</span><span class="ro">Stradă sau coordonate</span><span class="en">Street or coordinates</span></label><input type="text" id="address" name="address"><small><span class="hu">nem tesszük közzé</span><span class="ro">nu publicăm</span><span class="en">not published</span></small></div>
-          <div class="fld"><span class="lab"><span class="hu">Elhelyezés</span><span class="ro">Amplasare</span><span class="en">Placement</span><span class="req"> *</span></span><div class="choices"><label><input type="radio" name="placement" value="balcony" required> <span class="hu">erkély</span><span class="ro">balcon</span><span class="en">balcony</span></label><label><input type="radio" name="placement" value="garden"> <span class="hu">kert</span><span class="ro">grădină</span><span class="en">garden</span></label><label><input type="radio" name="placement" value="other"> <span class="hu">egyéb</span><span class="ro">altele</span><span class="en">other</span></label></div></div>
-          <div class="fld"><label for="floor"><span class="hu">Emelet</span><span class="ro">Etaj</span><span class="en">Floor</span></label><input type="number" id="floor" name="floor" min="0" step="1" inputmode="numeric"><small><span class="hu">földszint = 0</span><span class="ro">parter = 0</span><span class="en">ground floor = 0</span></small></div>
-          <div class="fld"><label for="orientation"><span class="hu">Tájolás</span><span class="ro">Orientare</span><span class="en">Facing</span></label><select id="orientation" name="orientation"><option value=""></option><option>N</option><option>NE</option><option>E</option><option>SE</option><option>S</option><option>SW</option><option>W</option><option>NW</option></select></div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="hu">Ellenőrzés</span><span class="ro">Verificare</span><span class="en">Check</span></legend>
-          <div class="fld"><label for="date"><span class="hu">Dátum</span><span class="ro">Data</span><span class="en">Date</span><span class="req"> *</span></label><input type="date" id="date" name="date" required></div>
-          <div class="fld"><label for="time"><span class="hu">Időpont</span><span class="ro">Ora</span><span class="en">Time</span></label><input type="time" id="time" name="time"></div>
-          <div class="fld"><span class="lab"><span class="hu">Időjárás</span><span class="ro">Vremea</span><span class="en">Weather</span></span><div class="choices"><label><input type="radio" name="weather" value="sunny"> <span class="hu">napos</span><span class="ro">însorit</span><span class="en">sunny</span></label><label><input type="radio" name="weather" value="cloudy"> <span class="hu">felhős</span><span class="ro">noros</span><span class="en">cloudy</span></label><label><input type="radio" name="weather" value="rainy"> <span class="hu">esős</span><span class="ro">ploios</span><span class="en">rainy</span></label></div></div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="hu">Lezárt csövek típusonként</span><span class="ro">Tuburi astupate pe tipuri</span><span class="en">Sealed tubes by type</span></legend>
-          <p class="muted fld wide" style="margin:0"><span class="hu">Az összes jelenleg lezárt csövet számold, ne csak az újakat. Üresen hagyott mező = 0.</span><span class="ro">Numără toate tuburile astupate acum, nu doar pe cele noi. Câmp gol = 0.</span><span class="en">Count all tubes that are sealed now, not only new ones. Empty field = 0.</span></p>
-          <div class="plugcount"><div class="pc"><img src="images/plugs/1-hylaeus-communis.webp" alt=""><div><span class="pl"><b>1</b> <span class="hu">Celofánszerű hártya</span><span class="ro">Membrană ca celofanul</span><span class="en">Cellophane-like membrane</span><br><em>Hylaeus communis</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug1" name="plug1" aria-label="1 Hylaeus communis"></div></div><div class="pc"><img src="images/plugs/2-osmia-leaiana.webp" alt=""><div><span class="pl"><b>2</b> <span class="hu">Növényi pép</span><span class="ro">Pastă vegetală</span><span class="en">Plant pulp</span><br><em>Osmia leaiana</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug2" name="plug2" aria-label="2 Osmia leaiana"></div></div><div class="pc"><img src="images/plugs/3-osmia-brevicornis.webp" alt=""><div><span class="pl"><b>3</b> <span class="hu">Növényi pép</span><span class="ro">Pastă vegetală</span><span class="en">Plant pulp</span><br><em>Osmia brevicornis</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug3" name="plug3" aria-label="3 Osmia brevicornis"></div></div><div class="pc"><img src="images/plugs/4-megachile-rotundata.webp" alt=""><div><span class="pl"><b>4</b> <span class="hu">Levél- vagy sziromdarabok</span><span class="ro">Bucăți de frunze sau petale</span><span class="en">Leaf or petal pieces</span><br><em>Megachile rotundata</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug4" name="plug4" aria-label="4 Megachile rotundata"></div></div><div class="pc"><img src="images/plugs/5-osmia-florisomnis.webp" alt=""><div><span class="pl"><b>5</b> <span class="hu">Durva sárdugó</span><span class="ro">Dop de noroi grosier</span><span class="en">Coarse mud plug</span><br><em>Osmia florisomnis</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug5" name="plug5" aria-label="5 Osmia florisomnis"></div></div><div class="pc"><img src="images/plugs/6-osmia-cornuta.webp" alt=""><div><span class="pl"><b>6</b> <span class="hu">Finom sárdugó</span><span class="ro">Dop de noroi fin</span><span class="en">Fine mud plug</span><br><em>Osmia cornuta</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug6" name="plug6" aria-label="6 Osmia cornuta"></div></div><div class="pc"><img src="images/plugs/7-hoplitis-adunca-glossy.webp" alt=""><div><span class="pl"><b>7</b> <span class="hu">Gyanta, fényes</span><span class="ro">Rășină, lucioasă</span><span class="en">Resin, glossy</span><br><em>Hoplitis adunca</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug7" name="plug7" aria-label="7 Hoplitis adunca"></div></div><div class="pc"><img src="images/plugs/8-hoplitis-adunca-matt.webp" alt=""><div><span class="pl"><b>8</b> <span class="hu">Gyanta, matt</span><span class="ro">Rășină, mată</span><span class="en">Resin, matt</span><br><em>Hoplitis adunca</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug8" name="plug8" aria-label="8 Hoplitis adunca"></div></div><div class="pc"><img src="images/plugs/9-osmia-bicornis.webp" alt=""><div><span class="pl"><b>9</b> <span class="hu">Sárdugó</span><span class="ro">Dop de noroi</span><span class="en">Mud plug</span><br><em>Osmia bicornis</em></span><input type="number" min="0" step="1" inputmode="numeric" id="plug9" name="plug9" aria-label="9 Osmia bicornis"></div></div><div class="pc"><span></span><div><span class="pl"><span class="hu">Ismeretlen vagy egyéb dugó</span><span class="ro">Dop necunoscut sau altul</span><span class="en">Unknown or other plug</span></span><input type="number" min="0" step="1" inputmode="numeric" id="plug_other" name="plug_other"></div></div><div class="pc"><span></span><div><span class="pl"><span class="hu">Nyitott (üres) csövek</span><span class="ro">Tuburi deschise (goale)</span><span class="en">Open (empty) tubes</span></span><input type="number" min="0" step="1" inputmode="numeric" id="open_tubes" name="open_tubes"></div></div></div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="hu">Megfigyelések</span><span class="ro">Observații</span><span class="en">Observations</span></legend>
-          <div class="fld wide"><span class="lab"><span class="hu">Látott rovarok</span><span class="ro">Insecte văzute</span><span class="en">Insects seen</span></span><div class="choices"><label><input type="checkbox" name="insects" value="osmia"> <span class="hu">Faliméhek (Osmia)</span><span class="ro">Albine zidar (Osmia)</span><span class="en">Mason bees (Osmia)</span></label><label><input type="checkbox" name="insects" value="megachile"> <span class="hu">Levélvágók (Megachile)</span><span class="ro">Tăietoare de frunze (Megachile)</span><span class="en">Leafcutter bees (Megachile)</span></label><label><input type="checkbox" name="insects" value="hylaeus"> <span class="hu">Álarcos méhek (Hylaeus)</span><span class="ro">Albine mascate (Hylaeus)</span><span class="en">Masked bees (Hylaeus)</span></label><label><input type="checkbox" name="insects" value="wasps"> <span class="hu">Darazsak</span><span class="ro">Viespi</span><span class="en">Wasps</span></label><label><input type="checkbox" name="insects" value="parasitoids"> <span class="hu">Fürkészek, fémdarazsak</span><span class="ro">Ichneumonide, viespi smarald</span><span class="en">Ichneumons, cuckoo wasps</span></label><label><input type="checkbox" name="insects" value="other"> <span class="hu">Egyéb rovar</span><span class="ro">Altă insectă</span><span class="en">Other insect</span></label></div></div>
-          <div class="fld wide"><label for="photos"><span class="hu">Fotók linkje</span><span class="ro">Link către fotografii</span><span class="en">Link to photos</span></label><input type="url" id="photos" name="photos" placeholder="https://"><small><span class="hu">pl. megosztott Google Drive-mappa; vagy küldd e-mailben</span><span class="ro">de ex. un dosar Google Drive partajat; sau trimite-le pe e-mail</span><span class="en">e.g. a shared Google Drive folder; or send them by e-mail</span></small></div>
-          <div class="fld wide"><label for="notes"><span class="hu">Megjegyzés</span><span class="ro">Observații</span><span class="en">Notes</span></label><textarea id="notes" name="notes"></textarea></div>
-        </fieldset>
-        <div><button class="cta" type="submit" id="send"><span class="hu">Beküldés</span><span class="ro">Trimite</span><span class="en">Submit</span></button></div>
-        <div id="result" aria-live="polite"></div>
+    <div id="app" hidden>
+      <div class="app-head">
+        <div>
+          <p class="eyebrow" style="margin:0"><span class="hu">Adatfelvételi lap</span><span class="ro">Fișa de date</span><span class="en">Data sheet</span></p>
+          <h2 id="steptitle"></h2>
+        </div>
+        <span class="saved" id="saved" hidden><span class="hu">Piszkozat mentve</span><span class="ro">Ciornă salvată</span><span class="en">Draft saved</span></span>
+      </div>
+      <ol class="prog" id="prog"><li data-step="0"><b>1</b><span><span class="hu">Ki és hol?</span><span class="ro">Cine și unde?</span><span class="en">Who and where?</span></span></li><li data-step="1"><b>2</b><span><span class="hu">Ellenőrzés</span><span class="ro">Verificare</span><span class="en">Check</span></span></li><li data-step="2"><b>3</b><span><span class="hu">Lezárt csövek</span><span class="ro">Tuburi astupate</span><span class="en">Sealed tubes</span></span></li><li data-step="3"><b>4</b><span><span class="hu">Megfigyelések</span><span class="ro">Observații</span><span class="en">Observations</span></span></li><li data-step="4"><b>5</b><span><span class="hu">Áttekintés</span><span class="ro">Rezumat</span><span class="en">Review</span></span></li></ol>
+      <div class="pbar"><i id="barfill"></i></div>
+
+      <form id="sheetform" novalidate>
+        <div class="step" data-step="0">
+          <div class="grid2">
+            <div class="fld"><label for="observer"><span class="hu">Név</span><span class="ro">Nume</span><span class="en">Name</span> <span class="req">*</span></label><input type="text" id="observer" name="observer" required autocomplete="name"></div>
+            <div class="fld"><label for="email"><span class="hu">E-mail</span><span class="ro">E-mail</span><span class="en">E-mail</span> </label><input type="email" id="email" name="email" autocomplete="email"></div>
+            <div class="fld"><label for="hotel_id"><span class="hu">Hotel azonosító</span><span class="ro">Codul hotelului</span><span class="en">Hotel ID</span> <span class="req">*</span></label><input type="text" id="hotel_id" name="hotel_id" required placeholder="BH-001" autocapitalize="characters"><small><span class="hu">a hotelre ragasztott kód</span><span class="ro">codul lipit pe hotel</span><span class="en">the code stuck on the hotel</span></small></div>
+            <div class="fld"><label for="district"><span class="hu">Városrész</span><span class="ro">Cartier</span><span class="en">District</span> <span class="req">*</span></label><input type="text" id="district" name="district" required list="districts" placeholder="Mănăștur, Gheorgheni…"></div>
+            <div class="fld wide"><label for="address"><span class="hu">Utca vagy koordináták</span><span class="ro">Stradă sau coordonate</span><span class="en">Street or coordinates</span> </label><input type="text" id="address" name="address"><small><span class="hu">nem tesszük közzé</span><span class="ro">nu publicăm</span><span class="en">not published</span></small></div>
+            <div class="fld wide"><span class="lab"><span class="hu">Elhelyezés</span><span class="ro">Amplasare</span><span class="en">Placement</span> <span class="req">*</span></span><div class="chips" role="group"><label class="chip "><input type="radio" name="placement" value="balcony" required><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v2H3zM5 12v8M19 12v8M9 12v8M14 12v8" stroke-width="1.8" fill="none"/><path d="M8 4h8v6H8z"/></svg><span class="hu">erkély</span><span class="ro">balcon</span><span class="en">balcony</span></span></label><label class="chip "><input type="radio" name="placement" value="garden"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-3 4-5 6-5 9a5 5 0 0 0 10 0c0-3-2-5-5-9z"/><path d="M12 13v8" stroke-width="2" fill="none"/></svg><span class="hu">kert</span><span class="ro">grădină</span><span class="en">garden</span></span></label><label class="chip "><input type="radio" name="placement" value="other"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg><span class="hu">egyéb</span><span class="ro">altele</span><span class="en">other</span></span></label></div></div>
+            <div class="fld"><label for="floor"><span class="hu">Emelet</span><span class="ro">Etaj</span><span class="en">Floor</span> </label><input type="number" id="floor" name="floor" min="0" step="1" inputmode="numeric"><small><span class="hu">földszint = 0</span><span class="ro">parter = 0</span><span class="en">ground floor = 0</span></small></div>
+            <div class="fld"><span class="lab"><span class="hu">Tájolás</span><span class="ro">Orientare</span><span class="en">Facing</span></span>
+              <div class="compass" role="radiogroup"><label class="c-n"><input type="radio" name="orientation" value="N"><span>N</span></label><label class="c-ne"><input type="radio" name="orientation" value="NE"><span>NE</span></label><label class="c-e"><input type="radio" name="orientation" value="E"><span>E</span></label><label class="c-se"><input type="radio" name="orientation" value="SE"><span>SE</span></label><label class="c-s"><input type="radio" name="orientation" value="S"><span>S</span></label><label class="c-sw"><input type="radio" name="orientation" value="SW"><span>SW</span></label><label class="c-w"><input type="radio" name="orientation" value="W"><span>W</span></label><label class="c-nw"><input type="radio" name="orientation" value="NW"><span>NW</span></label><i class="c-mid" aria-hidden="true"></i></div>
+            </div>
+            <label class="remember wide"><input type="checkbox" id="remember" checked> <span class="hu">Jegyezze meg ezeket az adatokat a következő ellenőrzéshez ezen az eszközön</span><span class="ro">Reține aceste date pentru următoarea verificare pe acest dispozitiv</span><span class="en">Remember these details for my next check on this device</span></label>
+          </div>
+          <datalist id="districts"><option value="Andrei Mureșanu"><option value="Becaș"><option value="Borhanci"><option value="Bulgaria"><option value="Bună Ziua"><option value="Centru"><option value="Dâmbul Rotund"><option value="Europa"><option value="Gheorgheni"><option value="Grigorescu"><option value="Gruia"><option value="Iris"><option value="Între Lacuri"><option value="Mănăștur"><option value="Mărăști"><option value="Someșeni"><option value="Sopor"><option value="Zorilor"></datalist>
+        </div>
+
+        <div class="step" data-step="1" hidden>
+          <div class="grid2">
+            <div class="fld"><label for="date"><span class="hu">Dátum</span><span class="ro">Data</span><span class="en">Date</span> <span class="req">*</span></label><input type="date" id="date" name="date" required></div>
+            <div class="fld"><label for="time"><span class="hu">Időpont</span><span class="ro">Ora</span><span class="en">Time</span> </label><input type="time" id="time" name="time"></div>
+            <div class="fld wide"><span class="lab"><span class="hu">Időjárás</span><span class="ro">Vremea</span><span class="en">Weather</span> </span><div class="chips" role="group"><label class="chip "><input type="radio" name="weather" value="sunny"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><g stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg><span class="hu">napos</span><span class="ro">însorit</span><span class="en">sunny</span></span></label><label class="chip "><input type="radio" name="weather" value="cloudy"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-8 5.5 5.5 0 0 0-10.6 1.5A3.3 3.3 0 0 0 7 18z"/></svg><span class="hu">felhős</span><span class="ro">noros</span><span class="en">cloudy</span></span></label><label class="chip "><input type="radio" name="weather" value="rainy"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14h10a4 4 0 0 0 .6-8 5.5 5.5 0 0 0-10.6 1.5A3.3 3.3 0 0 0 7 14z"/><g stroke-width="2" stroke-linecap="round"><path d="M8 17l-1 3M12 17l-1 3M16 17l-1 3"/></g></svg><span class="hu">esős</span><span class="ro">ploios</span><span class="en">rainy</span></span></label></div></div>
+          </div>
+        </div>
+
+        <div class="step" data-step="2" hidden>
+          <p class="muted" style="margin:0 0 16px"><span class="hu">Az összes jelenleg lezárt csövet számold, ne csak az újakat. A dugó anyaga szerint koppints a + gombra.</span><span class="ro">Numără toate tuburile astupate acum, nu doar pe cele noi. Apasă pe + după materialul dopului.</span><span class="en">Count every tube that is sealed now, not only new ones. Tap + for each plug material.</span></p>
+          <div class="ctrs"><div class="ctr" data-id="plug1"><img src="images/plugs/1-hylaeus-communis.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">1</b><span><span class="hu">Celofánszerű hártya</span><span class="ro">Membrană ca celofanul</span><span class="en">Cellophane-like membrane</span></span><em>Hylaeus communis</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug1" name="plug1" value="0" aria-label="Hylaeus communis"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug2"><img src="images/plugs/2-osmia-leaiana.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">2</b><span><span class="hu">Növényi pép</span><span class="ro">Pastă vegetală</span><span class="en">Plant pulp</span></span><em>Osmia leaiana</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug2" name="plug2" value="0" aria-label="Osmia leaiana"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug3"><img src="images/plugs/3-osmia-brevicornis.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">3</b><span><span class="hu">Növényi pép</span><span class="ro">Pastă vegetală</span><span class="en">Plant pulp</span></span><em>Osmia brevicornis</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug3" name="plug3" value="0" aria-label="Osmia brevicornis"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug4"><img src="images/plugs/4-megachile-rotundata.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">4</b><span><span class="hu">Levél- vagy sziromdarabok</span><span class="ro">Bucăți de frunze sau petale</span><span class="en">Leaf or petal pieces</span></span><em>Megachile rotundata</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug4" name="plug4" value="0" aria-label="Megachile rotundata"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug5"><img src="images/plugs/5-osmia-florisomnis.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">5</b><span><span class="hu">Durva sárdugó</span><span class="ro">Dop de noroi grosier</span><span class="en">Coarse mud plug</span></span><em>Osmia florisomnis</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug5" name="plug5" value="0" aria-label="Osmia florisomnis"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug6"><img src="images/plugs/6-osmia-cornuta.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">6</b><span><span class="hu">Finom sárdugó</span><span class="ro">Dop de noroi fin</span><span class="en">Fine mud plug</span></span><em>Osmia cornuta</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug6" name="plug6" value="0" aria-label="Osmia cornuta"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug7"><img src="images/plugs/7-hoplitis-adunca-glossy.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">7</b><span><span class="hu">Gyanta, fényes</span><span class="ro">Rășină, lucioasă</span><span class="en">Resin, glossy</span></span><em>Hoplitis adunca</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug7" name="plug7" value="0" aria-label="Hoplitis adunca"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug8"><img src="images/plugs/8-hoplitis-adunca-matt.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">8</b><span><span class="hu">Gyanta, matt</span><span class="ro">Rășină, mată</span><span class="en">Resin, matt</span></span><em>Hoplitis adunca</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug8" name="plug8" value="0" aria-label="Hoplitis adunca"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug9"><img src="images/plugs/9-osmia-bicornis.webp" alt="" loading="lazy"><div class="ctr-txt"><b class="pn">9</b><span><span class="hu">Sárdugó</span><span class="ro">Dop de noroi</span><span class="en">Mud plug</span></span><em>Osmia bicornis</em></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug9" name="plug9" value="0" aria-label="Osmia bicornis"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="plug_other"><span class="noimg">?</span><div class="ctr-txt"><span><span class="hu">Ismeretlen vagy egyéb dugó</span><span class="ro">Dop necunoscut sau altul</span><span class="en">Unknown or other plug</span></span></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="plug_other" name="plug_other" value="0" aria-label="plug_other"><button type="button" class="inc" aria-label="+">+</button></div></div><div class="ctr" data-id="open_tubes"><span class="noimg">?</span><div class="ctr-txt"><span><span class="hu">Nyitott (üres) csövek</span><span class="ro">Tuburi deschise (goale)</span><span class="en">Open (empty) tubes</span></span></div>
+<div class="ctr-ui"><button type="button" class="dec" aria-label="−">−</button><input type="number" min="0" step="1" inputmode="numeric" id="open_tubes" name="open_tubes" value="0" aria-label="open_tubes"><button type="button" class="inc" aria-label="+">+</button></div></div></div>
+          <div class="total"><span class="hu">Lezárt csövek összesen</span><span class="ro">Total tuburi astupate</span><span class="en">Sealed tubes in total</span>: <b id="total">0</b></div>
+        </div>
+
+        <div class="step" data-step="3" hidden>
+          <div class="fld wide"><span class="lab"><span class="hu">Látott rovarok a hotel körül</span><span class="ro">Insecte văzute lângă hotel</span><span class="en">Insects seen around the hotel</span></span><div class="itiles"><label class="itile"><input type="checkbox" name="insects" value="osmia"><img src="images/osmia-bicornis.webp" alt="" loading="lazy"><span><span class="hu">Faliméhek</span><span class="ro">Albine zidar</span><span class="en">Mason bees</span></span></label><label class="itile"><input type="checkbox" name="insects" value="megachile"><img src="images/megachile-willughbiella.webp" alt="" loading="lazy"><span><span class="hu">Levélvágók</span><span class="ro">Tăietoare de frunze</span><span class="en">Leafcutter bees</span></span></label><label class="itile"><input type="checkbox" name="insects" value="hylaeus"><img src="images/plugs/1-hylaeus-communis.webp" alt="" loading="lazy"><span><span class="hu">Álarcos méhek</span><span class="ro">Albine mascate</span><span class="en">Masked bees</span></span></label><label class="itile"><input type="checkbox" name="insects" value="wasps"><span class="noimg">·</span><span><span class="hu">Darazsak</span><span class="ro">Viespi</span><span class="en">Wasps</span></span></label><label class="itile"><input type="checkbox" name="insects" value="parasitoids"><span class="noimg">·</span><span><span class="hu">Fürkészek, fémdarazsak</span><span class="ro">Ichneumonide, viespi smarald</span><span class="en">Ichneumons, cuckoo wasps</span></span></label><label class="itile"><input type="checkbox" name="insects" value="other"><span class="noimg">·</span><span><span class="hu">Egyéb rovar</span><span class="ro">Altă insectă</span><span class="en">Other insect</span></span></label></div></div>
+          <div class="grid2" style="margin-top:20px">
+            <div class="fld wide"><label for="photos"><span class="hu">Fotók linkje</span><span class="ro">Link către fotografii</span><span class="en">Link to photos</span> </label><input type="url" id="photos" name="photos" placeholder="https://"><small><span class="hu">pl. megosztott Google Drive-mappa; vagy küldd e-mailben</span><span class="ro">de ex. un dosar Google Drive partajat; sau trimite-le pe e-mail</span><span class="en">e.g. a shared Google Drive folder; or send them by e-mail</span></small></div>
+            <div class="fld wide"><label for="notes"><span class="hu">Megjegyzés</span><span class="ro">Observații</span><span class="en">Notes</span></label><textarea id="notes" name="notes"></textarea></div>
+          </div>
+        </div>
+
+        <div class="step" data-step="4" hidden>
+          <div id="review" class="review"></div>
+          <div id="result" aria-live="polite"></div>
+        </div>
+
+        <div class="nav">
+          <button type="button" class="ghost" id="back"><span class="hu">← Vissza</span><span class="ro">← Înapoi</span><span class="en">← Back</span></button>
+          <button type="button" class="cta" id="next"><span class="hu">Tovább →</span><span class="ro">Înainte →</span><span class="en">Next →</span></button>
+          <button type="submit" class="cta" id="send" hidden><span class="hu">Beküldés</span><span class="ro">Trimite</span><span class="en">Submit</span></button>
+        </div>
       </form>
+
+      <div id="done" class="done-screen" hidden>
+        <div class="done-hex" aria-hidden="true"></div>
+        <h2><span class="hu">Elküldve. Köszönjük!</span><span class="ro">Trimis. Mulțumim!</span><span class="en">Sent. Thank you!</span></h2>
+        <p class="muted"><span class="hu">Az adatok bekerültek a BeeHost táblázatba.</span><span class="ro">Datele au ajuns în tabelul BeeHost.</span><span class="en">Your data is now in the BeeHost sheet.</span></p>
+        <button type="button" class="cta" id="again"><span class="hu">Új ellenőrzés rögzítése</span><span class="ro">Înregistrează o nouă verificare</span><span class="en">Record another check</span></button>
+      </div>
     </div>
   </div>
 </section>
@@ -94,38 +138,94 @@
 <script src="js/lang.js"></script>
 <script>
 /* ---- settings ----
-   PASS_HASH: SHA-256 of the volunteer password (client-side gate only; it keeps casual visitors out, it is not a security barrier).
-   SCRIPT_URL: the Google Apps Script web app URL (see README → "Data sheet"). The script checks the password again before writing to the Google Sheet. */
+   PASS_HASH: SHA-256 of the volunteer password (browser gate only; keeps casual visitors out, not a security barrier).
+   SCRIPT_URL: the Google Apps Script web app URL (README → "Data sheet"). The script checks the password again before writing to the Google Sheet. */
 const PASS_HASH='2a607662725465ab77d38bf37fda5da90f4c953b09ce44b18d29be637a7e390e';
 const SCRIPT_URL='';
 (function(){
 const T=o=>window.BH.T(o);
-const gate=document.getElementById('gate'),sheet=document.getElementById('sheet'),res=document.getElementById('result');
+const $=id=>document.getElementById(id);
+const STEPS=[{hu:'Ki és hol?',ro:'Cine și unde?',en:'Who and where?'},{hu:'Ellenőrzés',ro:'Verificare',en:'Check'},{hu:'Lezárt csövek',ro:'Tuburi astupate',en:'Sealed tubes'},{hu:'Megfigyelések',ro:'Observații',en:'Observations'},{hu:'Áttekintés',ro:'Rezumat',en:'Review'}];
+const KEEP=['observer','email','hotel_id','district','address','placement','floor','orientation'];
+const form=$('sheetform'),steps=[...form.querySelectorAll('.step')];let cur=0;
+function store(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+/* gate */
 async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 let PW=null;try{PW=sessionStorage.getItem('bh-pw')}catch(e){}
-function open(){gate.hidden=true;sheet.hidden=false;}
-if(PW) sha(PW).then(h=>{if(h===PASS_HASH) open();});
-document.getElementById('gateform').addEventListener('submit',async e=>{e.preventDefault();const v=document.getElementById('pw').value;
-  if(await sha(v)===PASS_HASH){PW=v;try{sessionStorage.setItem('bh-pw',v)}catch(_){}open();document.getElementById('gatemsg').hidden=true;}
-  else document.getElementById('gatemsg').hidden=false;});
-const form=document.getElementById('sheetform');
+function openApp(){$('gate').hidden=true;$('app').hidden=false;restore();show(0);}
+if(PW) sha(PW).then(h=>{if(h===PASS_HASH) openApp();});
+$('gateform').addEventListener('submit',async e=>{e.preventDefault();const v=$('pw').value;
+  if(await sha(v)===PASS_HASH){PW=v;try{sessionStorage.setItem('bh-pw',v)}catch(_){}$('gatemsg').hidden=true;openApp();}
+  else{$('gatemsg').hidden=false;$('gateform').classList.remove('shake');void $('gateform').offsetWidth;$('gateform').classList.add('shake');}});
+/* data in/out */
 function collect(){const fd=new FormData(form),d={};
   for(const [k,v] of fd.entries()){ if(k==='insects') d.insects=(d.insects?d.insects+', ':'')+v; else d[k]=v; }
-  for(let i=1;i<=9;i++) d['plug'+i]=d['plug'+i]?+d['plug'+i]:0; d.plug_other=d.plug_other?+d.plug_other:0; d.open_tubes=d.open_tubes?+d.open_tubes:0;
+  for(let i=1;i<=9;i++) d['plug'+i]=+(d['plug'+i]||0); d.plug_other=+(d.plug_other||0); d.open_tubes=+(d.open_tubes||0);
   d.lang=window.BH.lang; return d;}
-function show(cls,html){res.innerHTML=`<div class="msg ${cls}">${html}</div>`;}
-form.addEventListener('submit',async e=>{e.preventDefault();
-  if(!form.checkValidity()){form.reportValidity();show('err',T({hu:'Töltsd ki a *-gal jelölt mezőket.',ro:'Completează câmpurile marcate cu *.',en:'Please fill in the fields marked *.'}));return;}
+function fill(d){if(!d) return;for(const [k,v] of Object.entries(d)){
+  const els=form.querySelectorAll(`[name="${k}"]`);
+  els.forEach(el=>{ if(el.type==='radio') el.checked=(el.value===v); else if(el.type==='checkbox') el.checked=String(v).split(', ').includes(el.value); else el.value=v; });}}
+function restore(){fill(load('bh-sheet-keep'));fill(load('bh-sheet-draft'));if(!$('date').value) $('date').value=new Date().toISOString().slice(0,10);
+  if(!$('time').value){const n=new Date();$('time').value=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');} total();}
+let saveT;form.addEventListener('change',e=>{const f=e.target.closest&&e.target.closest('.fld');if(f) f.classList.remove('bad');});
+form.addEventListener('input',e=>{const f=e.target&&e.target.closest&&e.target.closest('.fld');if(f) f.classList.remove('bad');clearTimeout(saveT);saveT=setTimeout(()=>{store('bh-sheet-draft',collect());$('saved').hidden=false;setTimeout(()=>$('saved').hidden=true,1400)},400);total();});
+/* counters */
+form.querySelectorAll('.ctr').forEach(c=>{const i=c.querySelector('input');
+  c.querySelector('.inc').onclick=()=>{i.value=(+i.value||0)+1;bump(c);form.dispatchEvent(new Event('input'));};
+  c.querySelector('.dec').onclick=()=>{i.value=Math.max(0,(+i.value||0)-1);bump(c);form.dispatchEvent(new Event('input'));};});
+function bump(c){c.classList.toggle('has',+c.querySelector('input').value>0);c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop');}
+function total(){let t=0;for(let i=1;i<=9;i++) t+=+($('plug'+i).value||0); t+=+($('plug_other').value||0); $('total').textContent=t;
+  form.querySelectorAll('.ctr').forEach(c=>c.classList.toggle('has',+c.querySelector('input').value>0));}
+/* steps */
+function show(n){cur=n;steps.forEach((s,i)=>s.hidden=i!==n);
+  $('steptitle').textContent=(n+1)+' / '+STEPS.length+' · '+T(STEPS[n]);
+  [...$('prog').children].forEach((li,i)=>{li.classList.toggle('done',i<n);li.classList.toggle('on',i===n);});
+  $('barfill').style.width=((n)/(STEPS.length-1)*100)+'%';
+  $('back').style.visibility=n?'visible':'hidden';$('next').hidden=n===STEPS.length-1;$('send').hidden=n!==STEPS.length-1;
+  if(n===STEPS.length-1) review();
+  const top=$('app').getBoundingClientRect().top+scrollY-12; if(scrollY>top) scrollTo({top,behavior:'smooth'});}
+function valid(n){const req=[...steps[n].querySelectorAll('[required]')];let ok=true,first=null;
+  const groups=new Set();
+  req.forEach(el=>{ if(el.type==='radio'){groups.add(el.name);return;} const g=el.closest('.fld'); const bad=!el.checkValidity(); g.classList.toggle('bad',bad); if(bad){ok=false;first=first||el;} });
+  groups.forEach(nm=>{const g=steps[n].querySelector(`[name="${nm}"]`).closest('.fld');const bad=!form.querySelector(`[name="${nm}"]:checked`);g.classList.toggle('bad',bad);if(bad){ok=false;first=first||g.querySelector('input');}});
+  const em=$('email'); if(n===0&&em.value&&!em.checkValidity()){ok=false;em.closest('.fld').classList.add('bad');first=first||em;}
+  if(first) first.focus();return ok;}
+$('next').onclick=()=>{if(valid(cur)) show(cur+1);};
+$('back').onclick=()=>show(Math.max(0,cur-1));
+$('prog').addEventListener('click',e=>{const li=e.target.closest('li');if(!li) return;const n=+li.dataset.step;if(n<cur) show(n); else{for(let i=cur;i<n;i++){if(!valid(i)){show(i);return;}} show(n);}});
+document.addEventListener('langchange',()=>{show(cur);});
+/* review */
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function lbl(name,val){const el=form.querySelector(`[name="${name}"][value="${val}"]`);if(!el) return val;const sp=el.parentElement.querySelector('.'+window.BH.lang);return sp?sp.textContent.trim():val}
+function review(){const d=collect();const L=o=>T(o);
+  const plugs=[];for(let i=1;i<=9;i++) if(d['plug'+i]) plugs.push(`<span class="rp"><img src="${form.querySelector('[data-id=plug'+i+'] img').src}" alt="">${i} × <b>${d['plug'+i]}</b></span>`);
+  if(d.plug_other) plugs.push(`<span class="rp">? × <b>${d.plug_other}</b></span>`);
+  const row=(k,v,step)=>`<div class="rv"><dt>${L(k)}</dt><dd>${v||'<span class="muted">—</span>'}</dd><button type="button" class="edit" data-go="${step}">${L({hu:'Javít',ro:'Modifică',en:'Edit'})}</button></div>`;
+  $('review').innerHTML='<dl>'+
+   row({hu:'Megfigyelő',ro:'Observator',en:'Observer'},esc(d.observer)+(d.email?' · '+esc(d.email):''),0)+
+   row({hu:'Hotel',ro:'Hotel',en:'Hotel'},esc(d.hotel_id)+' · '+esc(d.district)+(d.placement?' · '+esc(lbl('placement',d.placement)):'')+(d.floor!==''&&d.floor!=null?' · '+esc(d.floor)+'.':'')+(d.orientation?' · '+esc(d.orientation):''),0)+
+   row({hu:'Ellenőrzés',ro:'Verificare',en:'Check'},esc(d.date)+' '+esc(d.time)+(d.weather?' · '+esc(lbl('weather',d.weather)):''),1)+
+   row({hu:'Lezárt csövek',ro:'Tuburi astupate',en:'Sealed tubes'},(plugs.length?plugs.join(''):'0')+` <span class="muted">· ${L({hu:'nyitott',ro:'deschise',en:'open'})}: ${d.open_tubes}</span>`,2)+
+   row({hu:'Látott rovarok',ro:'Insecte văzute',en:'Insects seen'},d.insects?d.insects.split(', ').map(v=>esc(lbl('insects',v))).join(', '):'',3)+
+   row({hu:'Fotók, megjegyzés',ro:'Fotografii, observații',en:'Photos, notes'},[d.photos?`<a href="${esc(d.photos)}" target="_blank" rel="noopener">${L({hu:'fotók',ro:'fotografii',en:'photos'})}</a>`:'',esc(d.notes)].filter(Boolean).join(' · '),3)+'</dl>';
+  $('review').querySelectorAll('.edit').forEach(b=>b.onclick=()=>show(+b.dataset.go));}
+/* submit */
+function msg(cls,html){$('result').innerHTML=`<div class="msg ${cls}">${html}</div>`;}
+form.addEventListener('submit',async e=>{e.preventDefault();for(let i=0;i<4;i++) if(!valid(i)){show(i);return;}
   const d=collect();
-  if(!SCRIPT_URL){show('err',T({hu:'A beküldés még nincs bekötve. Másold ki az alábbi adatokat, és küldd el e-mailben a zoltan.laszlo@ubbcluj.ro címre.',ro:'Trimiterea nu este încă activă. Copiază datele de mai jos și trimite-le pe e-mail la zoltan.laszlo@ubbcluj.ro.',en:'Submission is not connected yet. Copy the data below and e-mail it to zoltan.laszlo@ubbcluj.ro.'})+`<pre>${JSON.stringify(d,null,2).replace(/</g,'&lt;')}</pre>`);return;}
-  const btn=document.getElementById('send');btn.disabled=true;
+  if($('remember').checked){const k={};KEEP.forEach(x=>k[x]=d[x]);store('bh-sheet-keep',k);} else store('bh-sheet-keep',null);
+  if(!SCRIPT_URL){msg('err',T({hu:'A beküldés még nincs bekötve. Másold ki az alábbi adatokat, és küldd el e-mailben a zoltan.laszlo@ubbcluj.ro címre.',ro:'Trimiterea nu este încă activă. Copiază datele de mai jos și trimite-le pe e-mail la zoltan.laszlo@ubbcluj.ro.',en:'Submission is not connected yet. Copy the data below and e-mail it to zoltan.laszlo@ubbcluj.ro.'})+`<pre>${esc(JSON.stringify(d,null,2))}</pre>`);return;}
+  const b=$('send');b.disabled=true;b.classList.add('busy');
   try{const r=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(Object.assign({token:PW},d))});const j=await r.json();
-    if(j.ok){show('ok',T({hu:'Elküldve. Köszönjük!',ro:'Trimis. Mulțumim!',en:'Sent. Thank you!'}));form.reset();}
-    else if(j.error==='auth'){show('err',T({hu:'A jelszó a szerveren nem érvényes. Lépj ki és be újra, vagy írj nekünk.',ro:'Parola nu e valabilă pe server. Ieși și intră din nou sau scrie-ne.',en:'The server did not accept the password. Sign in again or write to us.'}));try{sessionStorage.removeItem('bh-pw')}catch(_){}}
-    else show('err',T({hu:'A beküldés nem sikerült: ',ro:'Trimiterea a eșuat: ',en:'Submission failed: '})+(j.error||''));
-  }catch(err){show('err',T({hu:'Nincs kapcsolat a szerverrel. Próbáld újra később; az adatok a lapon maradtak.',ro:'Nu există conexiune cu serverul. Încearcă mai târziu; datele au rămas în fișă.',en:'Could not reach the server. Try again later; your data is still in the form.'}));}
-  finally{btn.disabled=false;}
-});
+    if(j.ok){store('bh-sheet-draft',null);form.hidden=true;$('prog').hidden=true;document.querySelector('.pbar').hidden=true;$('done').hidden=false;$('steptitle').textContent='';}
+    else if(j.error==='auth'){msg('err',T({hu:'A szerver nem fogadta el a jelszót. Lépj be újra, vagy írj nekünk.',ro:'Serverul nu a acceptat parola. Intră din nou sau scrie-ne.',en:'The server did not accept the password. Sign in again or write to us.'}));try{sessionStorage.removeItem('bh-pw')}catch(_){}}
+    else msg('err',T({hu:'A beküldés nem sikerült: ',ro:'Trimiterea a eșuat: ',en:'Submission failed: '})+esc(j.error||''));
+  }catch(err){msg('err',T({hu:'Nincs kapcsolat a szerverrel. Próbáld újra később; az adatok piszkozatként megmaradtak ezen az eszközön.',ro:'Nu există conexiune cu serverul. Încearcă mai târziu; datele au rămas salvate ca ciornă pe acest dispozitiv.',en:'Could not reach the server. Try again later; your data is kept as a draft on this device.'}));}
+  finally{b.disabled=false;b.classList.remove('busy');}});
+$('again').onclick=()=>{const keep=load('bh-sheet-keep');form.reset();form.querySelectorAll('.ctr input').forEach(i=>i.value=0);fill(keep);
+  $('date').value=new Date().toISOString().slice(0,10);$('time').value='';restore();$('result').innerHTML='';
+  form.hidden=false;$('prog').hidden=false;document.querySelector('.pbar').hidden=false;$('done').hidden=true;show(keep?1:0);};
 })();
 </script>
 </body>
