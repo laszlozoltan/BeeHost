@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /adatlap.html
+
+Sitemap: https://laszlozoltan.github.io/BeeHost/sitemap.xml
