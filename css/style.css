@@ -121,6 +121,7 @@ p{margin:0;max-width:62ch}
 .tabs .plug{width:12px;height:12px;border-radius:50%}
 .tabs .plug.mud{background:var(--caramel)} .tabs .plug.leaf{background:var(--orchid)} .tabs .plug.par{background:var(--teaberry)}
 .tabs .plug.cuc{background:var(--pink)}
+.tabs .plug.ob{background:#D9A520}
 .tabs .plug.sol{background:var(--teaberry)}
 .tabs .plug.cw{background:#E8590C}
 .tabs .plug.pw{background:var(--lilac)}
