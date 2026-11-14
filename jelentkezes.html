@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="darkreader-lock">
+<title>BeeHost Jelentkezés</title>
+<meta name="description" content="Jelentkezés önkéntesnek a BeeHost vadméh-felmérésre Kolozsváron. Înscriere ca voluntar în studiul BeeHost. Sign up as a BeeHost volunteer in Cluj-Napoca.">
+<link rel="canonical" href="https://laszlozoltan.github.io/BeeHost/jelentkezes.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="css/style.css?v=20261114b">
+</head>
+<body class="lang-hu">
+<div class="site">
+<header class="subhead">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="index.html">beehost</a>
+      <span class="lang" role="group" aria-label="Nyelv / Limba / Language">
+        <button type="button" id="b-hu" aria-pressed="true">HU</button>
+        <button type="button" id="b-ro" aria-pressed="false">RO</button>
+        <button type="button" id="b-en" aria-pressed="false">EN</button>
+      </span>
+    </div>
+    <nav class="crumbs" aria-label="breadcrumb"><a href="index.html"><span class="hu">Főoldal</span><span class="ro">Acasă</span><span class="en">Home</span></a><span class="sep">/</span><a href="kutatas.html"><span class="hu">Kutatás</span><span class="ro">Cercetare</span><span class="en">Research</span></a><span class="sep">/</span><span><span class="hu">Jelentkezés</span><span class="ro">Înscriere</span><span class="en">Sign up</span></span></nav>
+    <h1><span class="hu">Jelentkezés <span class="hl">önkéntesnek</span></span><span class="ro">Înscriere ca <span class="hl">voluntar</span></span><span class="en">Sign up as a <span class="hl">volunteer</span></span></h1>
+  </div>
+</header>
+<main>
+  <div class="wrap" style="padding-top:8px"><nav class="subnav"><a href="kutatas.html"><span class="hu">Áttekintés</span><span class="ro">Prezentare</span><span class="en">Overview</span></a><a href="felmeres.html" aria-current="page"><span class="hu">Jelenlegi felmérés</span><span class="ro">Studiul actual</span><span class="en">Current survey</span></a><a href="eredmenyek.html"><span class="hu">Eredményeink</span><span class="ro">Rezultatele noastre</span><span class="en">Our results</span></a></nav></div>
+
+<section class="app-sec">
+  <div class="wrap">
+    <div id="app">
+      <div class="app-head"><div>
+        <p class="eyebrow" style="margin:0"><span class="hu">Önkénteseknek</span><span class="ro">Pentru voluntari</span><span class="en">For volunteers</span></p>
+        <h2><span class="hu">Jelentkezés a felmérésre</span><span class="ro">Înscriere în studiu</span><span class="en">Sign up for the survey</span></h2>
+      </div></div>
+      <p class="muted" style="max-width:62ch"><span class="hu">Töltsd ki az alábbi lapot. Jóváhagyás után e-mailben küldjük a személyes kódodat, amellyel az adatlapon beküldheted az ellenőrzéseid adatait és fotóit.</span><span class="ro">Completează fișa de mai jos. După aprobare îți trimitem pe e-mail codul personal, cu care poți trimite datele și fotografiile verificărilor pe fișa de date.</span><span class="en">Fill in the form below. Once approved, we e-mail you a personal code for sending your checks and photos on the data sheet.</span></p>
+      <form id="signform" novalidate>
+        <div class="grid2">
+          <div class="fld"><label for="name"><span class="hu">Név</span><span class="ro">Nume</span><span class="en">Name</span> <span class="req">*</span></label><input type="text" id="name" name="name" required autocomplete="name"></div>
+          <div class="fld"><label for="email"><span class="hu">E-mail</span><span class="ro">E-mail</span><span class="en">E-mail</span> <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email"><small><span class="hu">ide küldjük a kódot</span><span class="ro">aici trimitem codul</span><span class="en">we send the code here</span></small></div>
+          <div class="fld"><label for="phone"><span class="hu">Telefon</span><span class="ro">Telefon</span><span class="en">Phone</span> </label><input type="tel" id="phone" name="phone" autocomplete="tel"><small><span class="hu">nem kötelező</span><span class="ro">opțional</span><span class="en">optional</span></small></div>
+          <div class="fld"><label for="district"><span class="hu">Városrész</span><span class="ro">Cartier</span><span class="en">District</span> <span class="req">*</span></label><input type="text" id="district" name="district" required list="districts" placeholder="Mănăștur, Gheorgheni…"></div>
+          <div class="fld wide"><span class="lab"><span class="hu">Hová tennéd a hotelt?</span><span class="ro">Unde ai pune hotelul?</span><span class="en">Where would the hotel go?</span> <span class="req">*</span></span><div class="chips" role="group"><label class="chip"><input type="radio" name="placement" value="balcony" required><span><span class="hu">erkély</span><span class="ro">balcon</span><span class="en">balcony</span></span></label><label class="chip"><input type="radio" name="placement" value="garden"><span><span class="hu">kert</span><span class="ro">grădină</span><span class="en">garden</span></span></label><label class="chip"><input type="radio" name="placement" value="other"><span><span class="hu">egyéb</span><span class="ro">altele</span><span class="en">other</span></span></label></div></div>
+          <div class="fld wide"><span class="lab"><span class="hu">Rovarhotel</span><span class="ro">Hotel pentru insecte</span><span class="en">Insect hotel</span> <span class="req">*</span></span><div class="chips" role="group"><label class="chip"><input type="radio" name="hotel_status" value="has_beehost" required><span><span class="hu">van BeeHost-hotelem</span><span class="ro">am un hotel BeeHost</span><span class="en">I have a BeeHost hotel</span></span></label><label class="chip"><input type="radio" name="hotel_status" value="wants_hotel"><span><span class="hu">szeretnék hotelt kapni</span><span class="ro">aș dori un hotel</span><span class="en">I would like a hotel</span></span></label><label class="chip"><input type="radio" name="hotel_status" value="own_hotel"><span><span class="hu">saját hotelem van</span><span class="ro">am hotelul meu</span><span class="en">I have my own hotel</span></span></label></div></div>
+          <div class="fld"><label for="hotel_id"><span class="hu">Hotel azonosító</span><span class="ro">Codul hotelului</span><span class="en">Hotel ID</span> </label><input type="text" id="hotel_id" name="hotel_id" placeholder="BH-001" autocapitalize="characters"><small><span class="hu">ha már van BeeHost-hoteled</span><span class="ro">dacă ai deja un hotel BeeHost</span><span class="en">if you already have a BeeHost hotel</span></small></div>
+          <div class="fld wide"><label for="notes"><span class="hu">Megjegyzés</span><span class="ro">Observații</span><span class="en">Notes</span></label><textarea id="notes" name="notes"></textarea></div>
+          <label class="remember wide consent"><input type="checkbox" id="consent" name="consent" value="yes" required> <span><span class="hu">Hozzájárulok, hogy a megadott adataimat a Babeș-Bolyai Tudományegyetem BeeHost-kutatása a felmérés szervezéséhez kezelje. Az adatokat nem tesszük közzé és nem adjuk tovább; a felmérés végén, illetve kérésre töröljük őket.</span><span class="ro">Sunt de acord ca datele mele să fie folosite de cercetarea BeeHost a Universității Babeș-Bolyai pentru organizarea studiului. Datele nu sunt publicate și nu sunt transmise altora; le ștergem la sfârșitul studiului sau la cerere.</span><span class="en">I agree that the BeeHost research of Babeș-Bolyai University may use my details to organise the survey. They are not published or passed on, and are deleted at the end of the survey or on request.</span> <span class="req">*</span></span></label>
+        </div>
+        <datalist id="districts"><option value="Andrei Mureșanu"><option value="Becaș"><option value="Borhanci"><option value="Bulgaria"><option value="Bună Ziua"><option value="Centru"><option value="Dâmbul Rotund"><option value="Europa"><option value="Gheorgheni"><option value="Grigorescu"><option value="Gruia"><option value="Iris"><option value="Între Lacuri"><option value="Mănăștur"><option value="Mărăști"><option value="Someșeni"><option value="Sopor"><option value="Zorilor"></datalist>
+        <div id="result" aria-live="polite"></div>
+        <div class="nav"><span></span><button type="submit" class="cta" id="send"><span class="hu">Jelentkezés elküldése</span><span class="ro">Trimite înscrierea</span><span class="en">Send sign-up</span></button></div>
+      </form>
+      <div id="done" class="done-screen" hidden>
+        <div class="done-hex" aria-hidden="true"></div>
+        <h2 id="donetitle"><span class="hu">Köszönjük a jelentkezést!</span><span class="ro">Mulțumim pentru înscriere!</span><span class="en">Thank you for signing up!</span></h2>
+        <p class="muted" id="donetext"><span class="hu">Visszaigazoló e-mailt küldtünk. Jóváhagyás után e-mailben kapod meg a személyes kódodat.</span><span class="ro">Ți-am trimis un e-mail de confirmare. După aprobare primești codul personal pe e-mail.</span><span class="en">We sent you a confirmation e-mail. Once approved, you will receive your personal code by e-mail.</span></p>
+        <p class="muted" id="doneexists" hidden><span class="hu">Ezzel az e-mail-címmel már jelentkeztél; a kódot jóváhagyás után küldjük. Ha elveszett, írj a zoltan.laszlo@ubbcluj.ro címre.</span><span class="ro">Te-ai înscris deja cu această adresă; codul îl trimitem după aprobare. Dacă l-ai pierdut, scrie la zoltan.laszlo@ubbcluj.ro.</span><span class="en">You have already signed up with this address; we send the code once approved. If you lost it, write to zoltan.laszlo@ubbcluj.ro.</span></p>
+        <a class="cta" href="felmeres.html"><span class="hu">Vissza a felméréshez</span><span class="ro">Înapoi la studiu</span><span class="en">Back to the survey</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>BeeHost · <span class="hu">Vadméhek felmérése Kolozsváron</span><span class="ro">Cercetarea albinelor solitare din Cluj-Napoca</span><span class="en">Wild bee survey in Cluj-Napoca</span></span>
+    <span><span class="hu">Babeș-Bolyai Tudományegyetem</span><span class="ro">Universitatea Babeș-Bolyai</span><span class="en">Babeș-Bolyai University</span>, <span class="hu">Biológia és Geológia Kar</span><span class="ro">Facultatea de Biologie și Geologie</span><span class="en">Faculty of Biology and Geology</span></span>
+  </div>
+</footer>
+</div>
+<script src="js/lang.js"></script>
+<script>
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyMXLUWGS4N2H-0dAyD2OcWOFICgO7K5Tfp41nLrnJYeBM1mEaVprXN9GNqUT5tAQuM/exec';
+(function(){
+const T=o=>window.BH.T(o);const $=id=>document.getElementById(id);const form=$('signform');
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function msg(cls,html){$('result').innerHTML=`<div class="msg ${cls}">${html}</div>`;}
+form.addEventListener('input',e=>{const f=e.target.closest&&e.target.closest('.fld,.consent');if(f) f.classList.remove('bad');});
+form.addEventListener('change',e=>{const f=e.target.closest&&e.target.closest('.fld,.consent');if(f) f.classList.remove('bad');});
+function valid(){let ok=true,first=null;const groups=new Set();
+  form.querySelectorAll('[required]').forEach(el=>{if(el.type==='radio'){groups.add(el.name);return;}
+    const g=el.closest('.fld,.consent');const bad=el.type==='checkbox'?!el.checked:!el.checkValidity();g.classList.toggle('bad',bad);if(bad){ok=false;first=first||el;}});
+  groups.forEach(nm=>{const g=form.querySelector(`[name="${nm}"]`).closest('.fld');const bad=!form.querySelector(`[name="${nm}"]:checked`);g.classList.toggle('bad',bad);if(bad){ok=false;first=first||g.querySelector('input');}});
+  const ph=$('phone');if(ph.value&&!ph.checkValidity()){ok=false;ph.closest('.fld').classList.add('bad');}
+  if(first) first.focus();return ok;}
+form.addEventListener('submit',async e=>{e.preventDefault();if(!valid()) return;
+  const d={action:'signup',lang:window.BH.lang};for(const [k,v] of new FormData(form).entries()) d[k]=v;
+  if(!SCRIPT_URL){msg('err',T({hu:'A jelentkezés még nincs bekötve. Írj a zoltan.laszlo@ubbcluj.ro címre.',ro:'Înscrierea nu este încă activă. Scrie la zoltan.laszlo@ubbcluj.ro.',en:'Sign-up is not connected yet. Write to zoltan.laszlo@ubbcluj.ro.'}));return;}
+  const b=$('send');b.disabled=true;b.classList.add('busy');
+  try{const r=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(d)});const j=await r.json();
+    if(j.ok){form.hidden=true;$('done').hidden=false;if(j.exists){$('donetext').hidden=true;$('doneexists').hidden=false;}scrollTo({top:0,behavior:'smooth'});}
+    else msg('err',T({hu:'A jelentkezés nem sikerült: ',ro:'Înscrierea a eșuat: ',en:'Sign-up failed: '})+esc(j.error||''));
+  }catch(err){msg('err',T({hu:'Nincs kapcsolat a szerverrel. Próbáld újra később.',ro:'Nu există conexiune cu serverul. Încearcă mai târziu.',en:'Could not reach the server. Try again later.'}));}
+  finally{b.disabled=false;b.classList.remove('busy');}});
+})();
+</script>
+</body>
+</html>
