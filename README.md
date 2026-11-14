@@ -21,7 +21,8 @@ The page replaces the earlier WordPress site (beehostcom.wordpress.com); its con
 index.html          home page
 kutatas.html        research overview (linked from the "Részletek" button on the home page)
 felmeres.html       current survey: how it works, link to the data sheet
-adatlap.html        data sheet for volunteers (password gate + form)
+adatlap.html        data sheet for volunteers (personal code + form + photos)
+jelentkezes.html    volunteer sign-up
 eredmenyek.html     public results page (2021 pilot and 2023 season)
 css/style.css       all styles, shared by every page
 js/lang.js          HU/RO/EN switch for the subpages
@@ -79,35 +80,24 @@ No build step and no dependencies. `apps-script/Code.gs` is not used by the webs
 László Zoltán – zoltan.laszlo@ubbcluj.ro
 Babeș-Bolyai University, Faculty of Biology and Geology, Cluj-Napoca
 
-## Data sheet (adatlap.html) and Google Sheets
+## Sign-up, data sheet and Google Sheets / Drive
 
-GitHub Pages cannot store data or protect a page with a real password, so the data sheet works like this:
+GitHub Pages cannot store data, so both forms send to a Google Apps Script web app (`apps-script/Code.gs`), bound to a private Google Sheet:
 
-- **Password gate (in the browser).** `adatlap.html` asks for a password and compares its SHA-256 hash with `PASS_HASH` at the top of the script. This keeps casual visitors out, but anyone who reads the source code can get past it, so it is not a security barrier.
-- **Real check (on Google's side).** Each submission sends the password along. The Apps Script compares it with the `PASSWORD` script property and only then writes a row to the sheet. Without the password nobody can add rows. The Google Sheet itself stays private to you.
+- **Sign-up (`jelentkezes.html`).** Name, e-mail, optional phone, district, placement, hotel status and ID, notes, and consent. Each sign-up becomes a row on the `Önkéntesek` tab. You get a notification e-mail and the volunteer gets a confirmation. Duplicate e-mails are not added twice.
+- **Approval.** Tick the `jóváhagyva` checkbox for the volunteer, then in the sheet menu choose **BeeHost → Kódok kiküldése a jóváhagyottaknak**. Each newly approved volunteer gets a personal code (`BH-XXXX-XXXX`) by e-mail, in the language they signed up in. To block someone, untick `jóváhagyva`; their code stops working at once.
+- **Data sheet (`adatlap.html`, not indexed).** The volunteer signs in with the code, which the script checks on Google's side. Name and e-mail are filled in from the sign-up. Every submission is checked against the code again and written to the `Adatok` tab with the volunteer's code.
+- **Photos.** Up to 6 per check. They are resized in the browser (longest side 1600 px, JPEG) and saved to the Drive folder **BeeHost fotók**, one subfolder per hotel ID, named `HOTEL_DATE_n.jpg`. The sheet row gets the photo count and the Drive links. The files stay private to the sheet owner.
 
-Initial password: `beehost-2027`. **Change it before you hand it to volunteers:**
-1. Choose a new password and compute its SHA-256 hash, e.g. in a terminal: `printf '%s' 'NEWPASSWORD' | shasum -a 256` (macOS/Linux) or with any online SHA-256 tool.
-2. Put the hash into `PASS_HASH` in `adatlap.html`.
-3. Put the password itself into the `PASSWORD` script property in Apps Script.
+Setup (once):
+1. In the Google Sheet: **Extensions → Apps Script**, paste `apps-script/Code.gs`, save.
+2. Choose `setup` in the function list and press **Run**. Authorise access to the sheet, Google Drive and sending e-mail. This creates the `Adatok` and `Önkéntesek` tabs and the `BeeHost fotók` folder.
+3. **Deploy → New deployment → Web app**, with *Execute as*: Me and *Who has access*: Anyone. To update an existing deployment, use **Deploy → Manage deployments → edit → Version: New version**; the URL stays the same.
+4. Put the URL into `SCRIPT_URL` in `gen/adatlap.py`, which `jelentkezes.py` reads too, and regenerate. Or edit `SCRIPT_URL` directly in both `adatlap.html` and `jelentkezes.html`.
 
-Connecting the sheet (once):
-1. Create a Google Sheet, then **Extensions → Apps Script**, and paste `apps-script/Code.gs`.
-2. **Project Settings → Script properties → Add**: `PASSWORD` = the volunteer password.
-3. **Deploy → New deployment → Web app**; *Execute as*: Me; *Who has access*: Anyone. Authorise and copy the web app URL.
-4. Put the URL into `SCRIPT_URL` in `adatlap.html` and upload the file.
+The data sheet is a five-step app: who and where, check, sealed tubes (tap + / − on each plug type), observations and photos, review. It fills in today's date and time. On that device it can remember the code and the volunteer's hotel, and it keeps an unsent draft if the connection drops. Photos are not part of the draft.
 
-Optional, in the Apps Script editor (choose the function at the top, press **Run**):
-- `setupSheet()` creates the `Adatok` tab with a formatted, frozen header row.
-- `createGoogleForm()` builds a matching Google Form (HU / RO / EN labels) linked to the same spreadsheet, as a backup for volunteers who cannot use the web page. Its responses go to a separate tab ("Form Responses 1"); the edit and share links appear under **Execution log**.
-
-The web data sheet is a five-step app: who and where, check, sealed tubes (tap + / − on each plug type), observations, review. It fills in today's date and time, remembers the volunteer's name and hotel on that device (optional), and keeps an unsent draft if the connection drops.
-
-Until `SCRIPT_URL` is set, the form does not send anything; it shows the entered data so the volunteer can e-mail it.
-
-Rows are written to the tab `Adatok`, one row per check, with the columns listed in `FIELDS` in `Code.gs` (observer, hotel ID, location, date, counts for plug types 1–9, open tubes, insects seen, photo link, notes).
-
-Photos are not uploaded through the form (that would need Google Drive permissions); volunteers give a link to a shared folder or send them by e-mail.
+Personal data (names, e-mails, phones, addresses) stays in the private sheet and is never published on the site.
 
 ## Results page (eredmenyek.html)
 

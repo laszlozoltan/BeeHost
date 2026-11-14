@@ -10,7 +10,7 @@
 <meta name="robots" content="noindex"><link rel="canonical" href="https://laszlozoltan.github.io/BeeHost/adatlap.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=20261114a">
+<link rel="stylesheet" href="css/style.css?v=20261114b">
 </head>
 <body class="lang-hu">
 <div class="site">
@@ -39,9 +39,12 @@
         <p class="eyebrow"><span class="hu">Csak önkénteseknek</span><span class="ro">Doar pentru voluntari</span><span class="en">Volunteers only</span></p>
         <h2><span class="hu">Belépés az adatlaphoz</span><span class="ro">Acces la fișa de date</span><span class="en">Sign in to the data sheet</span></h2>
         <form class="gate" id="gateform">
-          <div class="fld"><label for="pw"><span class="hu">Jelszó</span><span class="ro">Parolă</span><span class="en">Password</span></label><input type="password" id="pw" autocomplete="current-password" required></div>
-          <button class="cta" type="submit"><span class="hu">Belépés</span><span class="ro">Intră</span><span class="en">Sign in</span></button>
-          <p id="gatemsg" class="msg err" hidden><span class="hu">Hibás jelszó. A jelszót a regisztrációkor e-mailben küldtük; ha elveszett, írj a zoltan.laszlo@ubbcluj.ro címre.</span><span class="ro">Parolă greșită. Parola a fost trimisă prin e-mail la înscriere; dacă ai pierdut-o, scrie la zoltan.laszlo@ubbcluj.ro.</span><span class="en">Wrong password. We sent the password by e-mail when you signed up; if you lost it, write to zoltan.laszlo@ubbcluj.ro.</span></p>
+          <div class="fld"><label for="pw"><span class="hu">Személyes kód</span><span class="ro">Cod personal</span><span class="en">Personal code</span></label><input type="text" id="pw" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="BH-XXXX-XXXX" required></div>
+          <label class="remember"><input type="checkbox" id="remcode" checked> <span class="hu">Emlékezzen a kódra ezen az eszközön</span><span class="ro">Reține codul pe acest dispozitiv</span><span class="en">Remember the code on this device</span></label>
+          <button class="cta" type="submit" id="gatebtn"><span class="hu">Belépés</span><span class="ro">Intră</span><span class="en">Sign in</span></button>
+          <p id="gatemsg" class="msg err" hidden><span class="hu">Ismeretlen vagy még nem jóváhagyott kód. A kódot a jelentkezés jóváhagyása után e-mailben küldjük; ha elveszett, írj a zoltan.laszlo@ubbcluj.ro címre.</span><span class="ro">Cod necunoscut sau încă neaprobat. Codul îl trimitem pe e-mail după aprobarea înscrierii; dacă l-ai pierdut, scrie la zoltan.laszlo@ubbcluj.ro.</span><span class="en">Unknown or not yet approved code. We e-mail the code once your sign-up is approved; if you lost it, write to zoltan.laszlo@ubbcluj.ro.</span></p>
+          <p id="gateerr" class="msg err" hidden><span class="hu">Nincs kapcsolat a szerverrel. Próbáld újra később.</span><span class="ro">Nu există conexiune cu serverul. Încearcă mai târziu.</span><span class="en">Could not reach the server. Try again later.</span></p>
+          <p class="muted" style="margin:6px 0 0"><span class="hu">Még nincs kódod?</span><span class="ro">Nu ai încă un cod?</span><span class="en">No code yet?</span> <a href="jelentkezes.html"><span class="hu">Jelentkezz önkéntesnek →</span><span class="ro">Înscrie-te ca voluntar →</span><span class="en">Sign up as a volunteer →</span></a></p>
         </form>
       </div>
     </div>
@@ -103,7 +106,10 @@
         <div class="step" data-step="3" hidden>
           <div class="fld wide"><span class="lab"><span class="hu">Látott rovarok a hotel körül</span><span class="ro">Insecte văzute lângă hotel</span><span class="en">Insects seen around the hotel</span></span><div class="itiles"><label class="itile"><input type="checkbox" name="insects" value="osmia"><img src="images/osmia-bicornis.webp" alt="" loading="lazy"><span><span class="hu">Faliméhek</span><span class="ro">Albine zidar</span><span class="en">Mason bees</span></span></label><label class="itile"><input type="checkbox" name="insects" value="megachile"><img src="images/megachile-willughbiella.webp" alt="" loading="lazy"><span><span class="hu">Levélvágók</span><span class="ro">Tăietoare de frunze</span><span class="en">Leafcutter bees</span></span></label><label class="itile"><input type="checkbox" name="insects" value="hylaeus"><img src="images/plugs/1-hylaeus-communis.webp" alt="" loading="lazy"><span><span class="hu">Álarcos méhek</span><span class="ro">Albine mascate</span><span class="en">Masked bees</span></span></label><label class="itile"><input type="checkbox" name="insects" value="wasps"><span class="noimg">·</span><span><span class="hu">Darazsak</span><span class="ro">Viespi</span><span class="en">Wasps</span></span></label><label class="itile"><input type="checkbox" name="insects" value="parasitoids"><span class="noimg">·</span><span><span class="hu">Fürkészek, fémdarazsak</span><span class="ro">Ichneumonide, viespi smarald</span><span class="en">Ichneumons, cuckoo wasps</span></span></label><label class="itile"><input type="checkbox" name="insects" value="other"><span class="noimg">·</span><span><span class="hu">Egyéb rovar</span><span class="ro">Altă insectă</span><span class="en">Other insect</span></span></label></div></div>
           <div class="grid2" style="margin-top:20px">
-            <div class="fld wide"><label for="photos"><span class="hu">Fotók linkje</span><span class="ro">Link către fotografii</span><span class="en">Link to photos</span> </label><input type="url" id="photos" name="photos" placeholder="https://"><small><span class="hu">pl. megosztott Google Drive-mappa; vagy küldd e-mailben</span><span class="ro">de ex. un dosar Google Drive partajat; sau trimite-le pe e-mail</span><span class="en">e.g. a shared Google Drive folder; or send them by e-mail</span></small></div>
+            <div class="fld wide"><span class="lab"><span class="hu">Fotók</span><span class="ro">Fotografii</span><span class="en">Photos</span></span>
+              <label class="drop" for="photofiles"><input type="file" id="photofiles" accept="image/*" multiple><span class="drop-ic" aria-hidden="true">+</span><span><span class="hu">Fotók hozzáadása (legfeljebb 6)</span><span class="ro">Adaugă fotografii (cel mult 6)</span><span class="en">Add photos (up to 6)</span></span></label>
+              <div class="thumbs" id="thumbs"></div>
+              <small><span class="hu">A fotók a BeeHost Google Drive-mappájába kerülnek; nem tesszük közzé őket. Feltöltés előtt kisebbre méretezzük őket.</span><span class="ro">Fotografiile ajung în dosarul Google Drive BeeHost; nu le publicăm. Le micșorăm înainte de trimitere.</span><span class="en">Photos go to the BeeHost Google Drive folder; we do not publish them. They are resized before upload.</span></small></div>
             <div class="fld wide"><label for="notes"><span class="hu">Megjegyzés</span><span class="ro">Observații</span><span class="en">Notes</span></label><textarea id="notes" name="notes"></textarea></div>
           </div>
         </div>
@@ -123,7 +129,7 @@
       <div id="done" class="done-screen" hidden>
         <div class="done-hex" aria-hidden="true"></div>
         <h2><span class="hu">Elküldve. Köszönjük!</span><span class="ro">Trimis. Mulțumim!</span><span class="en">Sent. Thank you!</span></h2>
-        <p class="muted"><span class="hu">Az adatok bekerültek a BeeHost táblázatba.</span><span class="ro">Datele au ajuns în tabelul BeeHost.</span><span class="en">Your data is now in the BeeHost sheet.</span></p>
+        <p class="muted"><span class="hu">Az adatok és a fotók bekerültek a BeeHost táblázatba és mappába.</span><span class="ro">Datele și fotografiile au ajuns în tabelul și dosarul BeeHost.</span><span class="en">Your data and photos are now in the BeeHost sheet and folder.</span></p>
         <button type="button" class="cta" id="again"><span class="hu">Új ellenőrzés rögzítése</span><span class="ro">Înregistrează o nouă verificare</span><span class="en">Record another check</span></button>
       </div>
     </div>
@@ -140,9 +146,9 @@
 <script src="js/lang.js"></script>
 <script>
 /* ---- settings ----
-   PASS_HASH: SHA-256 of the volunteer password (browser gate only; keeps casual visitors out, not a security barrier).
-   SCRIPT_URL: the Google Apps Script web app URL (README → "Data sheet"). The script checks the password again before writing to the Google Sheet. */
-const PASS_HASH='2a607662725465ab77d38bf37fda5da90f4c953b09ce44b18d29be637a7e390e';
+   SCRIPT_URL: the Google Apps Script web app URL (README → "Data sheet").
+   Access: personal volunteer codes, issued after approval in the "Önkéntesek" sheet; the script checks the code on every submission. */
+const MAXPH=6, MAXPX=1600;
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyMXLUWGS4N2H-0dAyD2OcWOFICgO7K5Tfp41nLrnJYeBM1mEaVprXN9GNqUT5tAQuM/exec';
 (function(){
 const T=o=>window.BH.T(o);
@@ -152,17 +158,38 @@ const KEEP=['observer','email','hotel_id','district','address','placement','floo
 const form=$('sheetform'),steps=[...form.querySelectorAll('.step')];let cur=0;
 function store(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
-/* gate */
-async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-let PW=null;try{PW=sessionStorage.getItem('bh-pw')}catch(e){}
-function openApp(){$('gate').hidden=true;$('app').hidden=false;restore();show(0);}
-if(PW) sha(PW).then(h=>{if(h===PASS_HASH) openApp();});
-$('gateform').addEventListener('submit',async e=>{e.preventDefault();const v=$('pw').value;
-  if(await sha(v)===PASS_HASH){PW=v;try{sessionStorage.setItem('bh-pw',v)}catch(_){}$('gatemsg').hidden=true;openApp();}
-  else{$('gatemsg').hidden=false;$('gateform').classList.remove('shake');void $('gateform').offsetWidth;$('gateform').classList.add('shake');}});
+/* gate: personal code, checked by the server */
+let PW=null,WHO=null;
+async function api(o){const r=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(o)});return r.json();}
+function openApp(){$('gate').hidden=true;$('app').hidden=false;restore();
+  if(WHO){if(!$('observer').value) $('observer').value=WHO.name||'';if(!$('email').value) $('email').value=WHO.email||'';}
+  show(0);}
+async function tryCode(code,quiet){code=String(code||'').trim().toUpperCase();if(!code) return false;
+  if(!SCRIPT_URL){PW=code;openApp();return true;}
+  const b=$('gatebtn');b.disabled=true;b.classList.add('busy');$('gatemsg').hidden=true;$('gateerr').hidden=true;
+  try{const j=await api({action:'login',code});
+    if(j.ok){PW=code;WHO=j;try{sessionStorage.setItem('bh-code',code);$('remcode').checked?localStorage.setItem('bh-code',code):localStorage.removeItem('bh-code')}catch(_){}openApp();return true;}
+    if(!quiet){$('gatemsg').hidden=false;$('gateform').classList.remove('shake');void $('gateform').offsetWidth;$('gateform').classList.add('shake');}
+    try{localStorage.removeItem('bh-code');sessionStorage.removeItem('bh-code')}catch(_){}
+  }catch(err){$('gateerr').hidden=false;}
+  finally{b.disabled=false;b.classList.remove('busy');}
+  return false;}
+(function(){let c=null;try{c=sessionStorage.getItem('bh-code')||localStorage.getItem('bh-code')}catch(e){}if(c){$('pw').value=c;tryCode(c,true);}})();
+$('gateform').addEventListener('submit',e=>{e.preventDefault();tryCode($('pw').value,false);});
+/* photos: resized in the browser, sent as JPEG */
+let PH=[];
+function resize(file){return new Promise((ok,bad)=>{const u=URL.createObjectURL(file),im=new Image();
+  im.onload=()=>{let w=im.naturalWidth,h=im.naturalHeight,s=Math.min(1,MAXPX/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);
+    const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);URL.revokeObjectURL(u);ok(c.toDataURL('image/jpeg',0.82));};
+  im.onerror=()=>{URL.revokeObjectURL(u);bad();};im.src=u;});}
+function drawThumbs(){$('thumbs').innerHTML=PH.map((p,i)=>`<span class="th"><img src="${p}" alt=""><button type="button" data-i="${i}" aria-label="×">×</button></span>`).join('');
+  $('thumbs').querySelectorAll('button').forEach(b=>b.onclick=()=>{PH.splice(+b.dataset.i,1);drawThumbs();});
+  document.querySelector('.drop').classList.toggle('full',PH.length>=MAXPH);}
+$('photofiles').addEventListener('change',async e=>{const fs=[...e.target.files].slice(0,MAXPH-PH.length);e.target.value='';
+  for(const f of fs){try{PH.push(await resize(f));}catch(_){}} drawThumbs();});
 /* data in/out */
 function collect(){const fd=new FormData(form),d={};
-  for(const [k,v] of fd.entries()){ if(k==='insects') d.insects=(d.insects?d.insects+', ':'')+v; else d[k]=v; }
+  for(const [k,v] of fd.entries()){ if(v instanceof File) continue; if(k==='insects') d.insects=(d.insects?d.insects+', ':'')+v; else d[k]=v; }
   for(let i=1;i<=9;i++) d['plug'+i]=+(d['plug'+i]||0); d.plug_other=+(d.plug_other||0); d.open_tubes=+(d.open_tubes||0);
   d.lang=window.BH.lang; return d;}
 function fill(d){if(!d) return;for(const [k,v] of Object.entries(d)){
@@ -210,7 +237,7 @@ function review(){const d=collect();const L=o=>T(o);
    row({hu:'Ellenőrzés',ro:'Verificare',en:'Check'},esc(d.date)+' '+esc(d.time)+(d.weather?' · '+esc(lbl('weather',d.weather)):''),1)+
    row({hu:'Lezárt csövek',ro:'Tuburi astupate',en:'Sealed tubes'},(plugs.length?plugs.join(''):'0')+` <span class="muted">· ${L({hu:'nyitott',ro:'deschise',en:'open'})}: ${d.open_tubes}</span>`,2)+
    row({hu:'Látott rovarok',ro:'Insecte văzute',en:'Insects seen'},d.insects?d.insects.split(', ').map(v=>esc(lbl('insects',v))).join(', '):'',3)+
-   row({hu:'Fotók, megjegyzés',ro:'Fotografii, observații',en:'Photos, notes'},[d.photos?`<a href="${esc(d.photos)}" target="_blank" rel="noopener">${L({hu:'fotók',ro:'fotografii',en:'photos'})}</a>`:'',esc(d.notes)].filter(Boolean).join(' · '),3)+'</dl>';
+   row({hu:'Fotók, megjegyzés',ro:'Fotografii, observații',en:'Photos, notes'},[PH.length?`<span class="rthumbs">${PH.map(p=>`<img src="${p}" alt="">`).join('')}</span>`:'',esc(d.notes)].filter(Boolean).join(' · '),3)+'</dl>';
   $('review').querySelectorAll('.edit').forEach(b=>b.onclick=()=>show(+b.dataset.go));}
 /* submit */
 function msg(cls,html){$('result').innerHTML=`<div class="msg ${cls}">${html}</div>`;}
@@ -219,9 +246,9 @@ form.addEventListener('submit',async e=>{e.preventDefault();for(let i=0;i<4;i++)
   if($('remember').checked){const k={};KEEP.forEach(x=>k[x]=d[x]);store('bh-sheet-keep',k);} else store('bh-sheet-keep',null);
   if(!SCRIPT_URL){msg('err',T({hu:'A beküldés még nincs bekötve. Másold ki az alábbi adatokat, és küldd el e-mailben a zoltan.laszlo@ubbcluj.ro címre.',ro:'Trimiterea nu este încă activă. Copiază datele de mai jos și trimite-le pe e-mail la zoltan.laszlo@ubbcluj.ro.',en:'Submission is not connected yet. Copy the data below and e-mail it to zoltan.laszlo@ubbcluj.ro.'})+`<pre>${esc(JSON.stringify(d,null,2))}</pre>`);return;}
   const b=$('send');b.disabled=true;b.classList.add('busy');
-  try{const r=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(Object.assign({token:PW},d))});const j=await r.json();
-    if(j.ok){store('bh-sheet-draft',null);form.hidden=true;$('prog').hidden=true;document.querySelector('.pbar').hidden=true;$('done').hidden=false;$('steptitle').textContent='';}
-    else if(j.error==='auth'){msg('err',T({hu:'A szerver nem fogadta el a jelszót. Lépj be újra, vagy írj nekünk.',ro:'Serverul nu a acceptat parola. Intră din nou sau scrie-ne.',en:'The server did not accept the password. Sign in again or write to us.'}));try{sessionStorage.removeItem('bh-pw')}catch(_){}}
+  try{const j=await api(Object.assign({action:'submit',code:PW},d,{photo_files:PH.map(p=>({b64:p}))}));
+    if(j.ok){store('bh-sheet-draft',null);PH=[];drawThumbs();form.hidden=true;$('prog').hidden=true;document.querySelector('.pbar').hidden=true;$('done').hidden=false;$('steptitle').textContent='';}
+    else if(j.error==='auth'){msg('err',T({hu:'A szerver nem fogadta el a kódot (lehet, hogy letiltották). Írj nekünk: zoltan.laszlo@ubbcluj.ro.',ro:'Serverul nu a acceptat codul (poate a fost dezactivat). Scrie-ne: zoltan.laszlo@ubbcluj.ro.',en:'The server did not accept your code (it may have been disabled). Write to us: zoltan.laszlo@ubbcluj.ro.'}));try{sessionStorage.removeItem('bh-code');localStorage.removeItem('bh-code')}catch(_){}}
     else msg('err',T({hu:'A beküldés nem sikerült: ',ro:'Trimiterea a eșuat: ',en:'Submission failed: '})+esc(j.error||''));
   }catch(err){msg('err',T({hu:'Nincs kapcsolat a szerverrel. Próbáld újra később; az adatok piszkozatként megmaradtak ezen az eszközön.',ro:'Nu există conexiune cu serverul. Încearcă mai târziu; datele au rămas salvate ca ciornă pe acest dispozitiv.',en:'Could not reach the server. Try again later; your data is kept as a draft on this device.'}));}
   finally{b.disabled=false;b.classList.remove('busy');}});
