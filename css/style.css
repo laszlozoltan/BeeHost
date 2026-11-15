@@ -216,7 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 /* ---------- Subpages (kutatas, felmeres, adatlap, eredmenyek) ---------- */
 .subhead{background:var(--amaranth);color:#FFF6F2;position:relative;overflow:hidden}
-.subhead::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:repeating-radial-gradient(circle at center,rgba(228,214,191,.18) 0 14px,transparent 14px 26px);pointer-events:none}
+.subhead::after{content:"";position:absolute;right:clamp(16px,5vw,72px);bottom:20px;width:clamp(90px,11vw,140px);aspect-ratio:1;background:url(../images/beehost-logo.svg) center/contain no-repeat;pointer-events:none}
 .subhead .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px;flex-wrap:wrap;position:relative;z-index:1}
 .subhead .brand{font-family:var(--f-display);font-weight:700;font-size:20px;text-decoration:none}
 .subhead .lang button{color:#FFF6F2}
@@ -267,7 +267,7 @@ legend{font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--a
 .fld.wide{grid-column:1/-1}
 .fld label,.fld .lab{font-family:var(--f-ui);font-weight:700;font-size:14px;color:var(--ink)}
 .fld small{color:var(--muted);font-size:13px}
-input[type=text],input[type=email],input[type=date],input[type=time],input[type=number],input[type=password],input[type=url],select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid rgba(42,41,64,.35);border-radius:0;padding:10px 12px;width:100%;min-width:0}
+input[type=text],input[type=email],input[type=date],input[type=time],input[type=number],input[type=password],input[type=url],input[type=tel],select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid rgba(42,41,64,.35);border-radius:0;padding:10px 12px;width:100%;min-width:0}
 textarea{min-height:96px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--teaberry);outline-offset:0;border-color:var(--teaberry)}
 .choices{display:flex;flex-wrap:wrap;gap:8px 18px}
@@ -412,3 +412,29 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--teaberry);outlin
 .sbar{display:flex;align-items:center;gap:10px;margin:2px 0 6px;font-family:var(--f-ui);font-size:12px;color:var(--muted)}
 .sbar i{display:block;height:4px;background:var(--ink);border-left:1px solid var(--ink);border-right:1px solid var(--ink);position:relative;flex:none}
 .sbar i::before,.sbar i::after{content:"";position:absolute;top:-3px;width:1.5px;height:10px;background:var(--ink)}.sbar i::before{left:-1px}.sbar i::after{right:-1px}
+
+/* sign-up + photo upload */
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.consent{align-items:flex-start;line-height:1.45}
+.consent input{margin-top:3px;flex:none}
+.consent.bad{color:#a23d2a}
+.consent.bad input{outline:2px solid #c0533a;outline-offset:2px}
+.drop{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1.5px dashed rgba(42,41,64,.35);background:#fff;cursor:pointer;font-family:var(--f-ui);font-weight:600;font-size:15px}
+.drop:hover{border-color:var(--teaberry);background:var(--tint)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.drop:has(input:focus-visible){outline:2px solid var(--teaberry)}
+.drop.full{opacity:.45;pointer-events:none}
+.drop-ic{display:inline-grid;place-items:center;width:30px;height:30px;background:var(--teaberry);color:#fff;font-size:20px;font-weight:700}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;margin-top:10px}
+.thumbs:empty{display:none}
+.th{position:relative;aspect-ratio:1;background:#fff;border:1px solid rgba(42,41,64,.15)}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th button{position:absolute;top:4px;right:4px;width:24px;height:24px;border:0;background:rgba(42,41,64,.8);color:#fff;font-size:16px;line-height:1;cursor:pointer}
+.rthumbs{display:inline-flex;gap:4px;flex-wrap:wrap;vertical-align:middle}
+.rthumbs img{width:44px;height:44px;object-fit:cover;border:1px solid rgba(42,41,64,.15)}
+.remember.wide,.consent{grid-column:1/-1}
+#signform{margin-top:22px}
+
+@media (max-width:640px){.subhead::after{width:84px;bottom:14px;opacity:.9}.subhead h1{max-width:calc(100% - 96px)}}
+.intro-head{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.intro-logo{width:clamp(110px,13vw,170px);height:auto;display:block}
